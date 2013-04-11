@@ -10,7 +10,7 @@ Models:
     *   sliderMoved
     *   startOver
     *   showInfo
-* EvilBullsEyeView
+*   EvilBullsEyeView
     Methods
     *	startNewRound
     *	starNewGame
@@ -19,15 +19,15 @@ Models:
     *	sliderMoved
     *	startOver
     *	showInfo
-* AboutView
+*   AboutView
     Methods:
     *	viewAbout 
-* History
+*   History
     Methods:
     *	switchRound
     *	storeHighscore
     *	retrieveHighscore
-* Settings
+*   Settings
     Methods:
     *	switchToEvil
     *	changeRoundCount
