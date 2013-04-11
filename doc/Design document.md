@@ -3,9 +3,8 @@ Design Document
 # BullsEye
 
 ## Models:
-*   BullsEyeView
-
-    Methods:
+### BullsEyeView
+*    Methods:
     *    startNewRound
     *   starNewGame
     *   updateLabels
@@ -15,9 +14,9 @@ Design Document
     *   showInfo
     
 
-*   EvilBullsEyeView
+### EvilBullsEyeView
 
-    Methods
+*    Methods
     *	startNewRound
     *	starNewGame
     *	updateLabels
@@ -27,23 +26,23 @@ Design Document
     *	showInfo
     
     
-*   AboutView
+### AboutView
 
-    Methods:
+*    Methods:
     *	viewAbout 
     
     
-*   History
+### History
 
-    Methods:
+*    Methods:
     *	switchRound
     *	storeHighscore
     *	retrieveHighscore
     
     
-*   Settings
+### Settings
 
-    Methods:
+*    Methods:
     *	switchToEvil
     *	changeRoundCount
     *	switchPlist
