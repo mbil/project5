@@ -59,3 +59,8 @@ Design Document
 ![GitHub Logo](https://f.cloud.github.com/assets/3585531/367185/019ff69c-a29f-11e2-9f4f-e99df71ed49a.png)
 ### About
 ![GitHub Logo](https://f.cloud.github.com/assets/3585531/367181/0170aeb4-a29f-11e2-9af3-f76feaeb5e49.png)
+
+## Style Guide:
+- We maken gebruik van [Google Objective-C Style Guide][1]
+
+[1]: http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml
