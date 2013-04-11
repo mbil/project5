@@ -1,8 +1,8 @@
 Design Document
 ===========
-BullsEye
+# BullsEye
 
-Models:
+## Models:
 *   BullsEyeView
 
     Methods:
@@ -45,7 +45,7 @@ Models:
     *	switchPlist
 
 
-UI Sketches
+## UI Sketches
 ![GitHub Logo](https://f.cloud.github.com/assets/3585531/367182/01829994-a29f-11e2-8a0c-02afcdc826e3.png)
 ![GitHub Logo](https://f.cloud.github.com/assets/3585531/367184/019ec0b0-a29f-11e2-87a0-44e43d608d36.png)
 ![GitHub Logo](https://f.cloud.github.com/assets/3585531/367183/019e7aa6-a29f-11e2-9766-6dbb7d525173.png)
