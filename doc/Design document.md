@@ -1,8 +1,10 @@
 Design Document
 ===========
 BullsEye
+
 Models:
 *   BullsEyeView
+
     Methods:
     *    startNewRound
     *   starNewGame
@@ -11,7 +13,9 @@ Models:
     *   sliderMoved
     *   startOver
     *   showInfo
+
 *   EvilBullsEyeView
+
     Methods
     *	startNewRound
     *	starNewGame
@@ -20,15 +24,21 @@ Models:
     *	sliderMoved
     *	startOver
     *	showInfo
+    
 *   AboutView
+
     Methods:
     *	viewAbout 
+    
 *   History
+
     Methods:
     *	switchRound
     *	storeHighscore
     *	retrieveHighscore
+    
 *   Settings
+
     Methods:
     *	switchToEvil
     *	changeRoundCount
