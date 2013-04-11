@@ -13,6 +13,7 @@ Design Document
     *   sliderMoved
     *   startOver
     *   showInfo
+    
 
 *   EvilBullsEyeView
 
@@ -25,10 +26,12 @@ Design Document
     *	startOver
     *	showInfo
     
+    
 *   AboutView
 
     Methods:
     *	viewAbout 
+    
     
 *   History
 
@@ -36,6 +39,7 @@ Design Document
     *	switchRound
     *	storeHighscore
     *	retrieveHighscore
+    
     
 *   Settings
 
