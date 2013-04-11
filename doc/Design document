@@ -1,0 +1,37 @@
+Design Document
+BullsEye
+Models:
+*   BullsEyeView
+    Methods:
+    *	startNewRound
+    *   starNewGame
+    *   updateLabels
+    *   showAlert
+    *   sliderMoved
+    *   startOver
+    *   showInfo
+*	EvilBullsEyeView
+    Methods
+    *	startNewRound
+    *	starNewGame
+    *	updateLabels
+    *	showAlert
+    *	sliderMoved
+    *	startOver
+    *	showInfo
+*	AboutView
+    Methods:
+    *	viewAbout 
+*	History
+    Methods:
+    *	switchRound
+    *	storeHighscore
+    *	retrieveHighscore
+*	Settings
+    Methods:
+    *	switchToEvil
+    *	changeRoundCount
+    *	switchPlist
+
+
+UI Sketches
