@@ -3,49 +3,42 @@ Design Document
 # BullsEye
 
 ## Models:
-### BullsEyeView
+### Gameplay
+### History
+### Settings
+
+## ViewControllers:
+### GameViewController
 *    Methods:
-    *    startNewRound
+    *   startNewRound
     *   starNewGame
     *   updateLabels
     *   showAlert
     *   sliderMoved
     *   startOver
     *   showInfo
-    
-
-### EvilBullsEyeView
-
+### EvilGameViewController
 *    Methods
-    *	startNewRound
+    * startNewRound
     *	starNewGame
     *	updateLabels
     *	showAlert
     *	sliderMoved
     *	startOver
     *	showInfo
-    
-    
-### AboutView
-
-*    Methods:
-    *	viewAbout 
-    
-    
-### History
-
-*    Methods:
-    *	switchRound
+### SettingsViewController
+* Methods
+    * switchRound
     *	storeHighscore
     *	retrieveHighscore
-    
-    
-### Settings
-
+### HighscoreViewController
+*     Methods
+    * switchRound
+    *	storeHighscore
+    *	retrieveHighscore
+### AboutViewController
 *    Methods:
-    *	switchToEvil
-    *	changeRoundCount
-    *	switchPlist
+    *	viewAbout 
 
 
 ## UI Sketches
