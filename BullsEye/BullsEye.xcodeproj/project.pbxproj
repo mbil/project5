@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D41578BEF500F7BBC0 /* UIKit.framework */; };
+		7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D61578BEF600F7BBC0 /* Foundation.framework */; };
+		7B0D44D91578BEF600F7BBC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */; };
+		7B0D44DF1578BEF600F7BBC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D44DD1578BEF600F7BBC0 /* InfoPlist.strings */; };
+		7B0D44E11578BEF600F7BBC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D44E01578BEF600F7BBC0 /* main.m */; };
+		7B0D44E51578BEF600F7BBC0 /* BullsEyeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D44E41578BEF600F7BBC0 /* BullsEyeAppDelegate.m */; };
+		7B0D44E81578BEF600F7BBC0 /* BullsEyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */; };
+		7B0D44EB1578BEF600F7BBC0 /* BullsEyeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */; };
+		7B0D450D15791D4000F7BBC0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D450B15791D4000F7BBC0 /* AboutViewController.m */; };
+		7B0D450E15791D4000F7BBC0 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D450C15791D4000F7BBC0 /* AboutViewController.xib */; };
+		7B0D4522157A09E600F7BBC0 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4519157A09E600F7BBC0 /* Background.png */; };
+		7B0D4523157A09E600F7BBC0 /* Button-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451A157A09E600F7BBC0 /* Button-Highlighted.png */; };
+		7B0D4524157A09E600F7BBC0 /* Button-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451B157A09E600F7BBC0 /* Button-Normal.png */; };
+		7B0D4525157A09E600F7BBC0 /* SliderThumb-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451C157A09E600F7BBC0 /* SliderThumb-Highlighted.png */; };
+		7B0D4526157A09E600F7BBC0 /* SliderThumb-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451D157A09E600F7BBC0 /* SliderThumb-Normal.png */; };
+		7B0D4527157A09E600F7BBC0 /* SliderTrackLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451E157A09E600F7BBC0 /* SliderTrackLeft.png */; };
+		7B0D4528157A09E600F7BBC0 /* SliderTrackRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D451F157A09E600F7BBC0 /* SliderTrackRight.png */; };
+		7B0D4529157A09E600F7BBC0 /* StartOverButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4520157A09E600F7BBC0 /* StartOverButton.png */; };
+		7B0D452A157A09E600F7BBC0 /* StartOverIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4521157A09E600F7BBC0 /* StartOverIcon.png */; };
+		7B0D452D157A0DE100F7BBC0 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D452C157A0DE100F7BBC0 /* BullsEye.html */; };
+		7B0D4538157A0E8700F7BBC0 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D452F157A0E8700F7BBC0 /* Background@2x.png */; };
+		7B0D4539157A0E8700F7BBC0 /* Button-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4530157A0E8700F7BBC0 /* Button-Highlighted@2x.png */; };
+		7B0D453A157A0E8700F7BBC0 /* Button-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4531157A0E8700F7BBC0 /* Button-Normal@2x.png */; };
+		7B0D453B157A0E8700F7BBC0 /* SliderThumb-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4532157A0E8700F7BBC0 /* SliderThumb-Highlighted@2x.png */; };
+		7B0D453C157A0E8700F7BBC0 /* SliderThumb-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4533157A0E8700F7BBC0 /* SliderThumb-Normal@2x.png */; };
+		7B0D453D157A0E8700F7BBC0 /* SliderTrackLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4534157A0E8700F7BBC0 /* SliderTrackLeft@2x.png */; };
+		7B0D453E157A0E8700F7BBC0 /* SliderTrackRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4535157A0E8700F7BBC0 /* SliderTrackRight@2x.png */; };
+		7B0D453F157A0E8700F7BBC0 /* StartOverButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4536157A0E8700F7BBC0 /* StartOverButton@2x.png */; };
+		7B0D4540157A0E8700F7BBC0 /* StartOverIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4537157A0E8700F7BBC0 /* StartOverIcon@2x.png */; };
+		7B0D4542157A0EF100F7BBC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D4541157A0EF100F7BBC0 /* QuartzCore.framework */; };
+		7B0D456A157A13C200F7BBC0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4561157A13C200F7BBC0 /* Icon-72.png */; };
+		7B0D456B157A13C200F7BBC0 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4562157A13C200F7BBC0 /* Icon-72@2x.png */; };
+		7B0D456C157A13C200F7BBC0 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4563157A13C200F7BBC0 /* Icon-Small-50.png */; };
+		7B0D456D157A13C200F7BBC0 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4564157A13C200F7BBC0 /* Icon-Small-50@2x.png */; };
+		7B0D456E157A13C200F7BBC0 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4565157A13C200F7BBC0 /* Icon-Small.png */; };
+		7B0D456F157A13C200F7BBC0 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4566157A13C200F7BBC0 /* Icon-Small@2x.png */; };
+		7B0D4570157A13C200F7BBC0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4567157A13C200F7BBC0 /* Icon.png */; };
+		7B0D4571157A13C200F7BBC0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4568157A13C200F7BBC0 /* Icon@2x.png */; };
+		7B0D4572157A13C200F7BBC0 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4569157A13C200F7BBC0 /* iTunesArtwork */; };
+		7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4574157A13CF00F7BBC0 /* Default.png */; };
+		7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4575157A13CF00F7BBC0 /* Default@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B0D44D01578BEF500F7BBC0 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0D44D41578BEF500F7BBC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7B0D44D61578BEF600F7BBC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7B0D44DC1578BEF600F7BBC0 /* BullsEye-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BullsEye-Info.plist"; sourceTree = "<group>"; };
+		7B0D44DE1578BEF600F7BBC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7B0D44E01578BEF600F7BBC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B0D44E21578BEF600F7BBC0 /* BullsEye-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BullsEye-Prefix.pch"; sourceTree = "<group>"; };
+		7B0D44E31578BEF600F7BBC0 /* BullsEyeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BullsEyeAppDelegate.h; sourceTree = "<group>"; };
+		7B0D44E41578BEF600F7BBC0 /* BullsEyeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullsEyeAppDelegate.m; sourceTree = "<group>"; };
+		7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BullsEyeViewController.h; sourceTree = "<group>"; };
+		7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullsEyeViewController.m; sourceTree = "<group>"; };
+		7B0D44EA1578BEF600F7BBC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BullsEyeViewController.xib; sourceTree = "<group>"; };
+		7B0D450A15791D4000F7BBC0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		7B0D450B15791D4000F7BBC0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		7B0D450C15791D4000F7BBC0 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		7B0D4519157A09E600F7BBC0 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		7B0D451A157A09E600F7BBC0 /* Button-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Highlighted.png"; sourceTree = "<group>"; };
+		7B0D451B157A09E600F7BBC0 /* Button-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Normal.png"; sourceTree = "<group>"; };
+		7B0D451C157A09E600F7BBC0 /* SliderThumb-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderThumb-Highlighted.png"; sourceTree = "<group>"; };
+		7B0D451D157A09E600F7BBC0 /* SliderThumb-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderThumb-Normal.png"; sourceTree = "<group>"; };
+		7B0D451E157A09E600F7BBC0 /* SliderTrackLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderTrackLeft.png; sourceTree = "<group>"; };
+		7B0D451F157A09E600F7BBC0 /* SliderTrackRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderTrackRight.png; sourceTree = "<group>"; };
+		7B0D4520157A09E600F7BBC0 /* StartOverButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartOverButton.png; sourceTree = "<group>"; };
+		7B0D4521157A09E600F7BBC0 /* StartOverIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartOverIcon.png; sourceTree = "<group>"; };
+		7B0D452C157A0DE100F7BBC0 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
+		7B0D452F157A0E8700F7BBC0 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		7B0D4530157A0E8700F7BBC0 /* Button-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Highlighted@2x.png"; sourceTree = "<group>"; };
+		7B0D4531157A0E8700F7BBC0 /* Button-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Normal@2x.png"; sourceTree = "<group>"; };
+		7B0D4532157A0E8700F7BBC0 /* SliderThumb-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderThumb-Highlighted@2x.png"; sourceTree = "<group>"; };
+		7B0D4533157A0E8700F7BBC0 /* SliderThumb-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderThumb-Normal@2x.png"; sourceTree = "<group>"; };
+		7B0D4534157A0E8700F7BBC0 /* SliderTrackLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderTrackLeft@2x.png"; sourceTree = "<group>"; };
+		7B0D4535157A0E8700F7BBC0 /* SliderTrackRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SliderTrackRight@2x.png"; sourceTree = "<group>"; };
+		7B0D4536157A0E8700F7BBC0 /* StartOverButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StartOverButton@2x.png"; sourceTree = "<group>"; };
+		7B0D4537157A0E8700F7BBC0 /* StartOverIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StartOverIcon@2x.png"; sourceTree = "<group>"; };
+		7B0D4541157A0EF100F7BBC0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7B0D4561157A13C200F7BBC0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		7B0D4562157A13C200F7BBC0 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		7B0D4563157A13C200F7BBC0 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		7B0D4564157A13C200F7BBC0 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		7B0D4565157A13C200F7BBC0 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		7B0D4566157A13C200F7BBC0 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		7B0D4567157A13C200F7BBC0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		7B0D4568157A13C200F7BBC0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		7B0D4569157A13C200F7BBC0 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		7B0D4574157A13CF00F7BBC0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		7B0D4575157A13CF00F7BBC0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B0D44CD1578BEF500F7BBC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B0D4542157A0EF100F7BBC0 /* QuartzCore.framework in Frameworks */,
+				7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */,
+				7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */,
+				7B0D44D91578BEF600F7BBC0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B0D44C51578BEF500F7BBC0 = {
+			isa = PBXGroup;
+			children = (
+				7B0D44DA1578BEF600F7BBC0 /* BullsEye */,
+				7B0D4518157A09E600F7BBC0 /* Images */,
+				7B0D452E157A0E8700F7BBC0 /* Retina Images */,
+				7B0D4560157A13C200F7BBC0 /* Icon */,
+				7B0D4573157A13CF00F7BBC0 /* Launch Images */,
+				7B0D452C157A0DE100F7BBC0 /* BullsEye.html */,
+				7B0D44D31578BEF500F7BBC0 /* Frameworks */,
+				7B0D44D11578BEF500F7BBC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B0D44D11578BEF500F7BBC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44D01578BEF500F7BBC0 /* BullsEye.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B0D44D31578BEF500F7BBC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */,
+				7B0D44D61578BEF600F7BBC0 /* Foundation.framework */,
+				7B0D4541157A0EF100F7BBC0 /* QuartzCore.framework */,
+				7B0D44D41578BEF500F7BBC0 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B0D44DA1578BEF600F7BBC0 /* BullsEye */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44E31578BEF600F7BBC0 /* BullsEyeAppDelegate.h */,
+				7B0D44E41578BEF600F7BBC0 /* BullsEyeAppDelegate.m */,
+				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
+				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
+				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
+				7B0D450A15791D4000F7BBC0 /* AboutViewController.h */,
+				7B0D450B15791D4000F7BBC0 /* AboutViewController.m */,
+				7B0D450C15791D4000F7BBC0 /* AboutViewController.xib */,
+				7B0D44DB1578BEF600F7BBC0 /* Supporting Files */,
+			);
+			path = BullsEye;
+			sourceTree = "<group>";
+		};
+		7B0D44DB1578BEF600F7BBC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44DC1578BEF600F7BBC0 /* BullsEye-Info.plist */,
+				7B0D44DD1578BEF600F7BBC0 /* InfoPlist.strings */,
+				7B0D44E01578BEF600F7BBC0 /* main.m */,
+				7B0D44E21578BEF600F7BBC0 /* BullsEye-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B0D4518157A09E600F7BBC0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D4519157A09E600F7BBC0 /* Background.png */,
+				7B0D451A157A09E600F7BBC0 /* Button-Highlighted.png */,
+				7B0D451B157A09E600F7BBC0 /* Button-Normal.png */,
+				7B0D451C157A09E600F7BBC0 /* SliderThumb-Highlighted.png */,
+				7B0D451D157A09E600F7BBC0 /* SliderThumb-Normal.png */,
+				7B0D451E157A09E600F7BBC0 /* SliderTrackLeft.png */,
+				7B0D451F157A09E600F7BBC0 /* SliderTrackRight.png */,
+				7B0D4520157A09E600F7BBC0 /* StartOverButton.png */,
+				7B0D4521157A09E600F7BBC0 /* StartOverIcon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7B0D452E157A0E8700F7BBC0 /* Retina Images */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D452F157A0E8700F7BBC0 /* Background@2x.png */,
+				7B0D4530157A0E8700F7BBC0 /* Button-Highlighted@2x.png */,
+				7B0D4531157A0E8700F7BBC0 /* Button-Normal@2x.png */,
+				7B0D4532157A0E8700F7BBC0 /* SliderThumb-Highlighted@2x.png */,
+				7B0D4533157A0E8700F7BBC0 /* SliderThumb-Normal@2x.png */,
+				7B0D4534157A0E8700F7BBC0 /* SliderTrackLeft@2x.png */,
+				7B0D4535157A0E8700F7BBC0 /* SliderTrackRight@2x.png */,
+				7B0D4536157A0E8700F7BBC0 /* StartOverButton@2x.png */,
+				7B0D4537157A0E8700F7BBC0 /* StartOverIcon@2x.png */,
+			);
+			path = "Retina Images";
+			sourceTree = "<group>";
+		};
+		7B0D4560157A13C200F7BBC0 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D4561157A13C200F7BBC0 /* Icon-72.png */,
+				7B0D4562157A13C200F7BBC0 /* Icon-72@2x.png */,
+				7B0D4563157A13C200F7BBC0 /* Icon-Small-50.png */,
+				7B0D4564157A13C200F7BBC0 /* Icon-Small-50@2x.png */,
+				7B0D4565157A13C200F7BBC0 /* Icon-Small.png */,
+				7B0D4566157A13C200F7BBC0 /* Icon-Small@2x.png */,
+				7B0D4567157A13C200F7BBC0 /* Icon.png */,
+				7B0D4568157A13C200F7BBC0 /* Icon@2x.png */,
+				7B0D4569157A13C200F7BBC0 /* iTunesArtwork */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		7B0D4573157A13CF00F7BBC0 /* Launch Images */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D4574157A13CF00F7BBC0 /* Default.png */,
+				7B0D4575157A13CF00F7BBC0 /* Default@2x.png */,
+			);
+			path = "Launch Images";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B0D44CF1578BEF500F7BBC0 /* BullsEye */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B0D44EE1578BEF600F7BBC0 /* Build configuration list for PBXNativeTarget "BullsEye" */;
+			buildPhases = (
+				7B0D44CC1578BEF500F7BBC0 /* Sources */,
+				7B0D44CD1578BEF500F7BBC0 /* Frameworks */,
+				7B0D44CE1578BEF500F7BBC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BullsEye;
+			productName = BullsEye;
+			productReference = 7B0D44D01578BEF500F7BBC0 /* BullsEye.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B0D44C71578BEF500F7BBC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BullsEye;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Hollance;
+			};
+			buildConfigurationList = 7B0D44CA1578BEF500F7BBC0 /* Build configuration list for PBXProject "BullsEye" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7B0D44C51578BEF500F7BBC0;
+			productRefGroup = 7B0D44D11578BEF500F7BBC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B0D44CF1578BEF500F7BBC0 /* BullsEye */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B0D44CE1578BEF500F7BBC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B0D44DF1578BEF600F7BBC0 /* InfoPlist.strings in Resources */,
+				7B0D44EB1578BEF600F7BBC0 /* BullsEyeViewController.xib in Resources */,
+				7B0D450E15791D4000F7BBC0 /* AboutViewController.xib in Resources */,
+				7B0D4522157A09E600F7BBC0 /* Background.png in Resources */,
+				7B0D4523157A09E600F7BBC0 /* Button-Highlighted.png in Resources */,
+				7B0D4524157A09E600F7BBC0 /* Button-Normal.png in Resources */,
+				7B0D4525157A09E600F7BBC0 /* SliderThumb-Highlighted.png in Resources */,
+				7B0D4526157A09E600F7BBC0 /* SliderThumb-Normal.png in Resources */,
+				7B0D4527157A09E600F7BBC0 /* SliderTrackLeft.png in Resources */,
+				7B0D4528157A09E600F7BBC0 /* SliderTrackRight.png in Resources */,
+				7B0D4529157A09E600F7BBC0 /* StartOverButton.png in Resources */,
+				7B0D452A157A09E600F7BBC0 /* StartOverIcon.png in Resources */,
+				7B0D452D157A0DE100F7BBC0 /* BullsEye.html in Resources */,
+				7B0D4538157A0E8700F7BBC0 /* Background@2x.png in Resources */,
+				7B0D4539157A0E8700F7BBC0 /* Button-Highlighted@2x.png in Resources */,
+				7B0D453A157A0E8700F7BBC0 /* Button-Normal@2x.png in Resources */,
+				7B0D453B157A0E8700F7BBC0 /* SliderThumb-Highlighted@2x.png in Resources */,
+				7B0D453C157A0E8700F7BBC0 /* SliderThumb-Normal@2x.png in Resources */,
+				7B0D453D157A0E8700F7BBC0 /* SliderTrackLeft@2x.png in Resources */,
+				7B0D453E157A0E8700F7BBC0 /* SliderTrackRight@2x.png in Resources */,
+				7B0D453F157A0E8700F7BBC0 /* StartOverButton@2x.png in Resources */,
+				7B0D4540157A0E8700F7BBC0 /* StartOverIcon@2x.png in Resources */,
+				7B0D456A157A13C200F7BBC0 /* Icon-72.png in Resources */,
+				7B0D456B157A13C200F7BBC0 /* Icon-72@2x.png in Resources */,
+				7B0D456C157A13C200F7BBC0 /* Icon-Small-50.png in Resources */,
+				7B0D456D157A13C200F7BBC0 /* Icon-Small-50@2x.png in Resources */,
+				7B0D456E157A13C200F7BBC0 /* Icon-Small.png in Resources */,
+				7B0D456F157A13C200F7BBC0 /* Icon-Small@2x.png in Resources */,
+				7B0D4570157A13C200F7BBC0 /* Icon.png in Resources */,
+				7B0D4571157A13C200F7BBC0 /* Icon@2x.png in Resources */,
+				7B0D4572157A13C200F7BBC0 /* iTunesArtwork in Resources */,
+				7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */,
+				7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B0D44CC1578BEF500F7BBC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B0D44E11578BEF600F7BBC0 /* main.m in Sources */,
+				7B0D44E51578BEF600F7BBC0 /* BullsEyeAppDelegate.m in Sources */,
+				7B0D44E81578BEF600F7BBC0 /* BullsEyeViewController.m in Sources */,
+				7B0D450D15791D4000F7BBC0 /* AboutViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7B0D44DD1578BEF600F7BBC0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B0D44DE1578BEF600F7BBC0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B0D44EA1578BEF600F7BBC0 /* en */,
+			);
+			name = BullsEyeViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B0D44EC1578BEF600F7BBC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7B0D44ED1578BEF600F7BBC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B0D44EF1578BEF600F7BBC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullsEye/BullsEye-Prefix.pch";
+				INFOPLIST_FILE = "BullsEye/BullsEye-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7B0D44F01578BEF600F7BBC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BullsEye/BullsEye-Prefix.pch";
+				INFOPLIST_FILE = "BullsEye/BullsEye-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B0D44CA1578BEF500F7BBC0 /* Build configuration list for PBXProject "BullsEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B0D44EC1578BEF600F7BBC0 /* Debug */,
+				7B0D44ED1578BEF600F7BBC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B0D44EE1578BEF600F7BBC0 /* Build configuration list for PBXNativeTarget "BullsEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B0D44EF1578BEF600F7BBC0 /* Debug */,
+				7B0D44F01578BEF600F7BBC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B0D44C71578BEF500F7BBC0 /* Project object */;
+}
