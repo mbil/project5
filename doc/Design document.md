@@ -17,6 +17,7 @@ Design Document
     *   sliderMoved
     *   startOver
     *   showInfo
+    
 ### EvilGameViewController
 *    Methods
     * startNewRound
@@ -26,16 +27,19 @@ Design Document
     *	sliderMoved
     *	startOver
     *	showInfo
+    
 ### SettingsViewController
 * Methods
     * switchRound
     *	storeHighscore
     *	retrieveHighscore
+    
 ### HighscoreViewController
 *     Methods
     * switchRound
     *	storeHighscore
     *	retrieveHighscore
+    
 ### AboutViewController
 *    Methods:
     *	viewAbout 
