@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49F8377D17201B6700929A9C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F8377C17201B6700929A9C /* Default-568h@2x.png */; };
 		7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D41578BEF500F7BBC0 /* UIKit.framework */; };
 		7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D61578BEF600F7BBC0 /* Foundation.framework */; };
 		7B0D44D91578BEF600F7BBC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49F8377C17201B6700929A9C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B0D44D01578BEF500F7BBC0 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D44D41578BEF500F7BBC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B0D44D61578BEF600F7BBC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 		7B0D44DB1578BEF600F7BBC0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49F8377C17201B6700929A9C /* Default-568h@2x.png */,
 				7B0D44DC1578BEF600F7BBC0 /* BullsEye-Info.plist */,
 				7B0D44DD1578BEF600F7BBC0 /* InfoPlist.strings */,
 				7B0D44E01578BEF600F7BBC0 /* main.m */,
@@ -259,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BullsEye;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Hollance;
 			};
 			buildConfigurationList = 7B0D44CA1578BEF500F7BBC0 /* Build configuration list for PBXProject "BullsEye" */;
@@ -317,6 +320,7 @@
 				7B0D4572157A13C200F7BBC0 /* iTunesArtwork in Resources */,
 				7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */,
 				7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */,
+				49F8377D17201B6700929A9C /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +366,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -387,6 +395,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -2,7 +2,7 @@
 //  BullsEyeAppDelegate.h
 //  BullsEye
 //
-//  Created by Matthijs Hollemans on 01-06-12.
+//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
