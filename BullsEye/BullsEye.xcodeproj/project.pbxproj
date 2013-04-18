@@ -48,6 +48,18 @@
 		7B0D4572157A13C200F7BBC0 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4569157A13C200F7BBC0 /* iTunesArtwork */; };
 		7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4574157A13CF00F7BBC0 /* Default.png */; };
 		7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0D4575157A13CF00F7BBC0 /* Default@2x.png */; };
+		BAA3EDB31720273C00FC5F59 /* SliderDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA3EDB21720273C00FC5F59 /* SliderDemo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BAA3EDB71720296700FC5F59 /* EvilBullsEyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA3EDB51720296700FC5F59 /* EvilBullsEyeViewController.m */; };
+		BAA3EDB81720296700FC5F59 /* EvilBullsEyeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDB61720296700FC5F59 /* EvilBullsEyeViewController.xib */; };
+		BAA3EDBA172029DA00FC5F59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDB9172029DA00FC5F59 /* Default-568h@2x.png */; };
+		BAA3EDC817202B5100FC5F59 /* bar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC017202B5100FC5F59 /* bar-background.png */; };
+		BAA3EDC917202B5100FC5F59 /* bar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */; };
+		BAA3EDCA17202B5100FC5F59 /* bar-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC217202B5100FC5F59 /* bar-highlight.png */; };
+		BAA3EDCB17202B5100FC5F59 /* bar-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */; };
+		BAA3EDCC17202B5100FC5F59 /* handle-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC417202B5100FC5F59 /* handle-hover.png */; };
+		BAA3EDCD17202B5100FC5F59 /* handle-hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */; };
+		BAA3EDCE17202B5100FC5F59 /* handle.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC617202B5100FC5F59 /* handle.png */; };
+		BAA3EDCF17202B5100FC5F59 /* handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC717202B5100FC5F59 /* handle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +110,20 @@
 		7B0D4569157A13C200F7BBC0 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		7B0D4574157A13CF00F7BBC0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7B0D4575157A13CF00F7BBC0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		BAA3EDB11720273C00FC5F59 /* SliderDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SliderDemo.h; path = ../SliderDemo.h; sourceTree = "<group>"; };
+		BAA3EDB21720273C00FC5F59 /* SliderDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SliderDemo.m; path = ../SliderDemo.m; sourceTree = "<group>"; };
+		BAA3EDB41720296700FC5F59 /* EvilBullsEyeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvilBullsEyeViewController.h; sourceTree = "<group>"; };
+		BAA3EDB51720296700FC5F59 /* EvilBullsEyeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvilBullsEyeViewController.m; sourceTree = "<group>"; };
+		BAA3EDB61720296700FC5F59 /* EvilBullsEyeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvilBullsEyeViewController.xib; sourceTree = "<group>"; };
+		BAA3EDB9172029DA00FC5F59 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BAA3EDC017202B5100FC5F59 /* bar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-background.png"; sourceTree = "<group>"; };
+		BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-background@2x.png"; sourceTree = "<group>"; };
+		BAA3EDC217202B5100FC5F59 /* bar-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight.png"; sourceTree = "<group>"; };
+		BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight@2x.png"; sourceTree = "<group>"; };
+		BAA3EDC417202B5100FC5F59 /* handle-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handle-hover.png"; sourceTree = "<group>"; };
+		BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handle-hover@2x.png"; sourceTree = "<group>"; };
+		BAA3EDC617202B5100FC5F59 /* handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handle.png; sourceTree = "<group>"; };
+		BAA3EDC717202B5100FC5F59 /* handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +144,7 @@
 		7B0D44C51578BEF500F7BBC0 = {
 			isa = PBXGroup;
 			children = (
+				BAA3EDB9172029DA00FC5F59 /* Default-568h@2x.png */,
 				7B0D44DA1578BEF600F7BBC0 /* BullsEye */,
 				7B0D4518157A09E600F7BBC0 /* Images */,
 				7B0D452E157A0E8700F7BBC0 /* Retina Images */,
@@ -151,14 +178,11 @@
 		7B0D44DA1578BEF600F7BBC0 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D44E31578BEF600F7BBC0 /* BullsEyeAppDelegate.h */,
-				7B0D44E41578BEF600F7BBC0 /* BullsEyeAppDelegate.m */,
-				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
-				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
-				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
-				7B0D450A15791D4000F7BBC0 /* AboutViewController.h */,
-				7B0D450B15791D4000F7BBC0 /* AboutViewController.m */,
-				7B0D450C15791D4000F7BBC0 /* AboutViewController.xib */,
+				BAA3EDBF17202A5F00FC5F59 /* App Delegate */,
+				BAA3EDBC172029FB00FC5F59 /* BullsEye */,
+				BAA3EDBD17202A0700FC5F59 /* About */,
+				BAA3EDBB172029E900FC5F59 /* EvilBullsEye */,
+				BAA3EDBE17202A1A00FC5F59 /* Slider */,
 				7B0D44DB1578BEF600F7BBC0 /* Supporting Files */,
 			);
 			path = BullsEye;
@@ -178,6 +202,14 @@
 		7B0D4518157A09E600F7BBC0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BAA3EDC017202B5100FC5F59 /* bar-background.png */,
+				BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */,
+				BAA3EDC217202B5100FC5F59 /* bar-highlight.png */,
+				BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */,
+				BAA3EDC417202B5100FC5F59 /* handle-hover.png */,
+				BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */,
+				BAA3EDC617202B5100FC5F59 /* handle.png */,
+				BAA3EDC717202B5100FC5F59 /* handle@2x.png */,
 				7B0D4519157A09E600F7BBC0 /* Background.png */,
 				7B0D451A157A09E600F7BBC0 /* Button-Highlighted.png */,
 				7B0D451B157A09E600F7BBC0 /* Button-Normal.png */,
@@ -230,6 +262,54 @@
 				7B0D4575157A13CF00F7BBC0 /* Default@2x.png */,
 			);
 			path = "Launch Images";
+			sourceTree = "<group>";
+		};
+		BAA3EDBB172029E900FC5F59 /* EvilBullsEye */ = {
+			isa = PBXGroup;
+			children = (
+				BAA3EDB41720296700FC5F59 /* EvilBullsEyeViewController.h */,
+				BAA3EDB51720296700FC5F59 /* EvilBullsEyeViewController.m */,
+				BAA3EDB61720296700FC5F59 /* EvilBullsEyeViewController.xib */,
+			);
+			name = EvilBullsEye;
+			sourceTree = "<group>";
+		};
+		BAA3EDBC172029FB00FC5F59 /* BullsEye */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
+				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
+				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
+			);
+			name = BullsEye;
+			sourceTree = "<group>";
+		};
+		BAA3EDBD17202A0700FC5F59 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D450A15791D4000F7BBC0 /* AboutViewController.h */,
+				7B0D450B15791D4000F7BBC0 /* AboutViewController.m */,
+				7B0D450C15791D4000F7BBC0 /* AboutViewController.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		BAA3EDBE17202A1A00FC5F59 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				BAA3EDB11720273C00FC5F59 /* SliderDemo.h */,
+				BAA3EDB21720273C00FC5F59 /* SliderDemo.m */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
+		BAA3EDBF17202A5F00FC5F59 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D44E31578BEF600F7BBC0 /* BullsEyeAppDelegate.h */,
+				7B0D44E41578BEF600F7BBC0 /* BullsEyeAppDelegate.m */,
+			);
+			name = "App Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +397,16 @@
 				7B0D4572157A13C200F7BBC0 /* iTunesArtwork in Resources */,
 				7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */,
 				7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */,
+				BAA3EDB81720296700FC5F59 /* EvilBullsEyeViewController.xib in Resources */,
+				BAA3EDBA172029DA00FC5F59 /* Default-568h@2x.png in Resources */,
+				BAA3EDC817202B5100FC5F59 /* bar-background.png in Resources */,
+				BAA3EDC917202B5100FC5F59 /* bar-background@2x.png in Resources */,
+				BAA3EDCA17202B5100FC5F59 /* bar-highlight.png in Resources */,
+				BAA3EDCB17202B5100FC5F59 /* bar-highlight@2x.png in Resources */,
+				BAA3EDCC17202B5100FC5F59 /* handle-hover.png in Resources */,
+				BAA3EDCD17202B5100FC5F59 /* handle-hover@2x.png in Resources */,
+				BAA3EDCE17202B5100FC5F59 /* handle.png in Resources */,
+				BAA3EDCF17202B5100FC5F59 /* handle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +421,8 @@
 				7B0D44E51578BEF600F7BBC0 /* BullsEyeAppDelegate.m in Sources */,
 				7B0D44E81578BEF600F7BBC0 /* BullsEyeViewController.m in Sources */,
 				7B0D450D15791D4000F7BBC0 /* AboutViewController.m in Sources */,
+				BAA3EDB31720273C00FC5F59 /* SliderDemo.m in Sources */,
+				BAA3EDB71720296700FC5F59 /* EvilBullsEyeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

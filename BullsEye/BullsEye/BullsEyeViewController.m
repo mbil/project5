@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "BullsEyeViewController.h"
-#import "AboutViewController.h"
+#import "EvilBullsEyeViewController.h"
 
 @interface BullsEyeViewController ()
 
@@ -128,7 +128,7 @@
 
 - (IBAction)showInfo
 {
-    AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    EvilBullsEyeViewController *controller = [[EvilBullsEyeViewController alloc] initWithNibName:@"EvilBullsEyeViewController" bundle:nil];
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:controller animated:YES completion:nil];
 }
