@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BullsEyeViewController.h"
 #import "AboutViewController.h"
+#import "HighScoreViewController.h"
 
 @interface BullsEyeViewController ()
 
@@ -20,11 +21,6 @@
     int score;
     int round;
 }
-
-@synthesize slider;
-@synthesize targetLabel;
-@synthesize scoreLabel;
-@synthesize roundLabel;
 
 - (void)updateLabels
 {
@@ -129,6 +125,13 @@
 - (IBAction)showInfo
 {
     AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (IBAction)showHighScores
+{
+    HighScoreViewController *controller = [[HighScoreViewController alloc] initWithNibName:@"HighScoreViewController" bundle:nil];
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:controller animated:YES completion:nil];
 }

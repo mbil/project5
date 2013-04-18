@@ -19,5 +19,6 @@
 - (IBAction)sliderMoved:(UISlider *)sender;
 - (IBAction)startOver;
 - (IBAction)showInfo;
+- (IBAction)showHighScores;
 
 @end

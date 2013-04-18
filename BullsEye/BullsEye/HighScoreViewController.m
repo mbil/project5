@@ -1,18 +1,18 @@
 //
-//  AboutViewController.m
+//  HighScoreViewController.m
 //  BullsEye
 //
-//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
-//  Copyright (c) 2012 Hollance. All rights reserved.
+//  Created by Miguel Pruijssers on 18-04-13.
+//  Copyright (c) 2013 Hollance. All rights reserved.
 //
 
-#import "AboutViewController.h"
+#import "HighScoreViewController.h"
 
-@interface AboutViewController ()
+@interface HighScoreViewController ()
 
 @end
 
-@implementation AboutViewController
+@implementation HighScoreViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,11 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
 
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"BullsEye" ofType:@"html"];
-    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
-    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-    [self.webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:baseURL];
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
