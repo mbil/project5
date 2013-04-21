@@ -23,7 +23,7 @@
     if (self) {
         _minThumbOn = false;
         _maxThumbOn = false;
-        _padding = 20;
+        _padding = 30;
         
         _trackBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar-background.png"]] autorelease];
         //        _trackBackground.frame=CGRectMake(self.frame.origin.x,self.frame.origin.y, self.frame.size.width,11);
@@ -36,12 +36,12 @@
         _track.center = self.center;
         [self addSubview:_track];
         
-        _minThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
+        _minThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SliderThumb-Normal.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
         _minThumb.frame = CGRectMake(self.frame.origin.x,self.frame.origin.y, self.frame.size.height,self.frame.size.height);
         _minThumb.contentMode = UIViewContentModeCenter;
         [self addSubview:_minThumb];
         
-        _maxThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"handle.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
+        _maxThumb = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SliderThumb-Normal.png"] highlightedImage:[UIImage imageNamed:@"handle-hover.png"]] autorelease];
         _maxThumb.frame = CGRectMake(self.frame.origin.x,self.frame.origin.y, self.frame.size.height,self.frame.size.height);
         _maxThumb.contentMode = UIViewContentModeCenter;
         [self addSubview:_maxThumb];
@@ -59,7 +59,7 @@
     _maxThumb.center = CGPointMake([self xForValue:selectedMaximumValue], self.center.y);
     
     
-    NSLog(@"Tapable size %f", _minThumb.bounds.size.width); 
+    NSLog(@"Tapable size %f", _minThumb.bounds.size.width);
     [self updateTrackHighlight];
     
     

@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface EvilBullsEyeViewController : UIViewController
+
 @property(nonatomic,retain)IBOutlet UILabel *lblForRange;
+@property (nonatomic, strong) IBOutlet UILabel *targetLabel1;
+@property (strong, nonatomic) IBOutlet UILabel *targetLabel2;
+@property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
+@property (nonatomic, strong) IBOutlet UILabel *roundLabel;
+
+- (IBAction)showAlert;
+- (IBAction)startOver;
+- (IBAction)showInfo;
+
 @end

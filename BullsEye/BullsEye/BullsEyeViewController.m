@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "BullsEyeViewController.h"
-#import "EvilBullsEyeViewController.h"
+#import "AboutViewController.h"
 
 @interface BullsEyeViewController ()
 
@@ -31,6 +31,13 @@
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
+}
+	
+- (IBAction)toggleEvil:(id)sender {
+    EvilBullsEyeViewController *evil = [[EvilBullsEyeViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:evil animated:YES];
 }
 
 - (void)startNewRound
@@ -128,7 +135,7 @@
 
 - (IBAction)showInfo
 {
-    EvilBullsEyeViewController *controller = [[EvilBullsEyeViewController alloc] initWithNibName:@"EvilBullsEyeViewController" bundle:nil];
+    AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:controller animated:YES completion:nil];
 }
