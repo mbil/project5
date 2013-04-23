@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HighScoreViewController : UIViewController
+@interface HighScoreViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
-//- (IBAction)changerounds;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *sortedHighScores;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *roundsOption;
+
 - (IBAction)close;
 
 @end

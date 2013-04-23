@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49C222B81720212000E65CD7 /* highscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C222B71720211F00E65CD7 /* highscorelist.plist */; };
 		49C222C1172023C800E65CD7 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C222BF172023C800E65CD7 /* HighScoreViewController.m */; };
 		49C222C2172023C800E65CD7 /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C222C0172023C800E65CD7 /* HighScoreViewController.xib */; };
+		49C222D0172179BE00E65CD7 /* highscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C222CF172179BE00E65CD7 /* highscorelist.plist */; };
 		49F8377D17201B6700929A9C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F8377C17201B6700929A9C /* Default-568h@2x.png */; };
 		7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D41578BEF500F7BBC0 /* UIKit.framework */; };
 		7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D61578BEF600F7BBC0 /* Foundation.framework */; };
@@ -55,10 +55,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		49C222B71720211F00E65CD7 /* highscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscorelist.plist; sourceTree = "<group>"; };
 		49C222BE172023C800E65CD7 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		49C222BF172023C800E65CD7 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		49C222C0172023C800E65CD7 /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
+		49C222CF172179BE00E65CD7 /* highscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscorelist.plist; sourceTree = "<group>"; };
 		49F8377C17201B6700929A9C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B0D44D01578BEF500F7BBC0 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D44D41578BEF500F7BBC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -171,6 +171,7 @@
 				49C222BE172023C800E65CD7 /* HighScoreViewController.h */,
 				49C222BF172023C800E65CD7 /* HighScoreViewController.m */,
 				49C222C0172023C800E65CD7 /* HighScoreViewController.xib */,
+				49C222CF172179BE00E65CD7 /* highscorelist.plist */,
 				7B0D44DB1578BEF600F7BBC0 /* Supporting Files */,
 			);
 			path = BullsEye;
@@ -184,7 +185,6 @@
 				7B0D44DD1578BEF600F7BBC0 /* InfoPlist.strings */,
 				7B0D44E01578BEF600F7BBC0 /* main.m */,
 				7B0D44E21578BEF600F7BBC0 /* BullsEye-Prefix.pch */,
-				49C222B71720211F00E65CD7 /* highscorelist.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -332,8 +332,8 @@
 				7B0D4576157A13CF00F7BBC0 /* Default.png in Resources */,
 				7B0D4577157A13CF00F7BBC0 /* Default@2x.png in Resources */,
 				49F8377D17201B6700929A9C /* Default-568h@2x.png in Resources */,
-				49C222B81720212000E65CD7 /* highscorelist.plist in Resources */,
 				49C222C2172023C800E65CD7 /* HighScoreViewController.xib in Resources */,
+				49C222D0172179BE00E65CD7 /* highscorelist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
