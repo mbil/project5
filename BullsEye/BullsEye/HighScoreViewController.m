@@ -78,12 +78,6 @@
     // Roep method segmentedControlIndexChanged als value van segment veranderd
     [self.roundsOption addTarget:self action:@selector(segmentedControlIndexChanged) forControlEvents:UIControlEventValueChanged];
     
-    // Datum tijdelijk, moet vervangen met datum van behalen score
-    //NSDate *currentDate = [NSDate date];
-    //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //[dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    //NSString *dateInStringFormatted = [dateFormatter stringFromDate:currentDate];
-    
     // selectedRounds = 'leeg'
     NSString *selectedRounds = @"";
 

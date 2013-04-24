@@ -20,7 +20,7 @@
 		<key>highscore</key>
 		<integer>2</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>23-04-2013</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -30,7 +30,7 @@
 		<key>highscore</key>
 		<integer>3</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>24-04-2013</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -40,7 +40,7 @@
 		<key>highscore</key>
 		<integer>4</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>25-04-2013</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -50,7 +50,7 @@
 		<key>highscore</key>
 		<integer>5</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>26-04-2013</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -60,7 +60,7 @@
 		<key>highscore</key>
 		<integer>6</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>22-05-2014</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -70,7 +70,7 @@
 		<key>highscore</key>
 		<integer>7</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>23-05-2014</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -80,7 +80,7 @@
 		<key>highscore</key>
 		<integer>8</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>24-05-2014</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -90,7 +90,7 @@
 		<key>highscore</key>
 		<integer>9</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>25-05-2014</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -100,7 +100,7 @@
 		<key>highscore</key>
 		<integer>10</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>26-05-2014</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -110,7 +110,7 @@
 		<key>highscore</key>
 		<integer>11</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>22-06-2015</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -120,7 +120,7 @@
 		<key>highscore</key>
 		<integer>12</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>23-06-2015</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -130,7 +130,7 @@
 		<key>highscore</key>
 		<integer>13</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>24-06-2015</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -140,7 +140,7 @@
 		<key>highscore</key>
 		<integer>14</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>25-06-2015</string>
 	</dict>
 	<dict>
 		<key>rounds</key>
@@ -150,7 +150,7 @@
 		<key>highscore</key>
 		<integer>15</integer>
 		<key>date</key>
-		<string>22-04-2013</string>
+		<string>26-06-2015</string>
 	</dict>
 </array>
 </plist>
