@@ -102,12 +102,12 @@
     if (totaldifference == 0) {
         title = @"Perfect!";
         points += 100;
-    } else if (totaldifference < 5) {
-        if (totaldifference == 1) {
+    } else if (totaldifference < 10) {
+        if (totaldifference == 2) {
             points += 50;
         }
         title = @"You almost had it!";
-    } else if (totaldifference < 10) {
+    } else if (totaldifference < 20) {
         title = @"Pretty good!";
     } else {
         title = @"Not even close...";
