@@ -28,7 +28,7 @@
         
         // Sorteer op descending
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
-        sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
+        sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];        
     }
     return self;
 }
@@ -57,10 +57,11 @@
     return 1;
 }
 
-// Table heeft max. 5 rows
+// Table heeft rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;
+    //return [sortedHighScores count];
 }
 
 // Invullen tablecells
