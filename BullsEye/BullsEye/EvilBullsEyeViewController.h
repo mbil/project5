@@ -1,9 +1,9 @@
 //
-//  ViewController.h
-//  DemoSlider
+//  EvilBullsEyeViewController.h
+//  BullsEye
 //
-//  Created by http://Sugartin.info on 16/05/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
+//  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,7 +2,7 @@
 //  BullsEyeViewController.m
 //  BullsEye
 //
-//  Created by Matthijs Hollemans on 01-06-12.
+//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import "BullsEyeViewController.h"
 #import "BullsEyeAppDelegate.h"
 #import "AboutViewController.h"
+#import "HighScoreViewController.h"
 
 @interface BullsEyeViewController ()
 
@@ -165,20 +166,140 @@
 
 - (IBAction)startOver
 {
+    // Datum van vandaag
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *date = [dateFormatter stringFromDate:currentDate];
+    
+    // Load de property list
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
+    NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
+    
+    // Array voor de highscores
+    NSArray *dataFromPlist = [highscores valueForKey:@"highscore"];
+    
+    // Maak variabel aan voor de highscores uit de plist
+    NSNumber *scoresPlist;
+    
+    
+    // Maak variabel voor alertmessage
+    NSString *alertMessage = nil;
+    
+    // Als ronde 1 is voltooid
+    if (selectedRounds == 1)
+    {
+        // Loop door de eerste 5 highscores van de bijbehorende ronde
+        for (int i = 0; i < 5; i++)
+        {
+            // Vul variabel met highscores
+            scoresPlist = [dataFromPlist objectAtIndex:i];
+            
+            // Als highscore al bestaat, break for loop
+            if (score == [scoresPlist intValue]) {
+                break;
+            }
+            
+            // Als de behaalde score groter is, vervang de score
+            else if (score > [scoresPlist intValue])
+            {
+                // Kopieer dictionary
+                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                // Wijzig highscore en datum
+                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                // Vervang oude dictionary voor nieuwe
+                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                
+                // Alert player met nieuwe highscore
+                alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+                UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [highScoreAlert show];
+                
+                break;
+            }
+        }
+    }
+    
+    else if (selectedRounds == 5)
+    {
+        for (int i = 5; i < 10; i++)
+        {
+            scoresPlist = [dataFromPlist objectAtIndex:i];
+            
+            if (score == [scoresPlist intValue]) {
+                break;
+            }
+            
+            else if ((score > [scoresPlist intValue]) && (score != [scoresPlist intValue]))
+            {
+                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                
+                alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+                UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [highScoreAlert show];
+                
+                break;
+            }
+        }
+    }
+    
+    else if (selectedRounds == 10)
+    {
+        for (int i = 10; i < 15; i++)
+        {
+            scoresPlist = [dataFromPlist objectAtIndex:i];
+            
+            if (score == [scoresPlist intValue]) {
+                break;
+            }
+            
+            else if ((score > [scoresPlist intValue]) && (score != [scoresPlist intValue]))
+            {
+                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                
+                alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+                UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [highScoreAlert show];
+                
+                break;
+            }
+        }
+    }
+    
+    // Schrijf naar plist
+    [highscores writeToFile:path atomically:YES];
+    
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
     transition.duration = 1;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
- 
+    
     [self startNewGame];
     [self updateLabels];
- 
+    
     [self.view.layer addAnimation:transition forKey:nil];
 }
 
 - (IBAction)showInfo
 {
     AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (IBAction)showHighScores
+{
+    HighScoreViewController *controller = [[HighScoreViewController alloc] initWithNibName:@"HighScoreViewController" bundle:nil];
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:controller animated:YES completion:nil];
 }
