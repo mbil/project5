@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D8815A61740F31F007448CC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8815A41740F31F007448CC /* SettingsViewController.m */; };
+		3D8815A71740F31F007448CC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8815A51740F31F007448CC /* SettingsViewController.xib */; };
 		7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D41578BEF500F7BBC0 /* UIKit.framework */; };
 		7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D61578BEF600F7BBC0 /* Foundation.framework */; };
 		7B0D44D91578BEF600F7BBC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */; };
@@ -63,6 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D8815A31740F31F007448CC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3D8815A41740F31F007448CC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		3D8815A51740F31F007448CC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7B0D44D01578BEF500F7BBC0 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D44D41578BEF500F7BBC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B0D44D61578BEF600F7BBC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +146,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D8815A21740F272007448CC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3D8815A31740F31F007448CC /* SettingsViewController.h */,
+				3D8815A41740F31F007448CC /* SettingsViewController.m */,
+				3D8815A51740F31F007448CC /* SettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		3D8EE6A51741280D00F12B41 /* Highscores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Highscores;
+			sourceTree = "<group>";
+		};
 		7B0D44C51578BEF500F7BBC0 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +200,8 @@
 		7B0D44DA1578BEF600F7BBC0 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				3D8EE6A51741280D00F12B41 /* Highscores */,
+				3D8815A21740F272007448CC /* Settings */,
 				BAA3EDBF17202A5F00FC5F59 /* App Delegate */,
 				BAA3EDBC172029FB00FC5F59 /* BullsEye */,
 				BAA3EDBD17202A0700FC5F59 /* About */,
@@ -407,6 +431,7 @@
 				BAA3EDCD17202B5100FC5F59 /* handle-hover@2x.png in Resources */,
 				BAA3EDCE17202B5100FC5F59 /* handle.png in Resources */,
 				BAA3EDCF17202B5100FC5F59 /* handle@2x.png in Resources */,
+				3D8815A71740F31F007448CC /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +448,7 @@
 				7B0D450D15791D4000F7BBC0 /* AboutViewController.m in Sources */,
 				BAA3EDB31720273C00FC5F59 /* SliderDemo.m in Sources */,
 				BAA3EDB71720296700FC5F59 /* EvilBullsEyeViewController.m in Sources */,
+				3D8815A61740F31F007448CC /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

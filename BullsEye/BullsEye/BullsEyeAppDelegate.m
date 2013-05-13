@@ -19,6 +19,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.loadPlist = NO;
+    self.selectedRounds = 0;
 	self.viewController = [[BullsEyeViewController alloc] initWithNibName:@"BullsEyeViewController" bundle:nil];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

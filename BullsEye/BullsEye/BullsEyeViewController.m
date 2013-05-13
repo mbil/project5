@@ -8,6 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "BullsEyeViewController.h"
+#import "BullsEyeAppDelegate.h"
 #import "AboutViewController.h"
 
 @interface BullsEyeViewController ()
@@ -19,12 +20,41 @@
     int targetValue;
     int score;
     int round;
+    int selectedRounds;
 }
 
 @synthesize slider;
 @synthesize targetLabel;
 @synthesize scoreLabel;
 @synthesize roundLabel;
+
+- (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.loadPlist) {
+        self.selectedRoundsLabel.text = @"ja";
+    } else {
+        self.selectedRoundsLabel.text = @"nee";
+    }
+    if (appDelegate.selectedRounds == 0) {
+        selectedRounds = 1;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+    }else if (appDelegate.selectedRounds == 1) {
+        selectedRounds = 5;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+        
+    }else if (appDelegate.selectedRounds == 2) {
+        selectedRounds = 10;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+    }else {
+        self.selectedRoundsLabel2.text = @"1";
+    }
+    [super viewWillAppear:animated];
+}
+
+- (void)settingsViewControllerDidFinish:(SettingsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)updateLabels
 {
@@ -43,11 +73,22 @@
 - (void)startNewRound
 {
     round += 1;
- 
+        
     targetValue = 1 + (arc4random() % 100);
- 
+        
     currentValue = 50;
     self.slider.value = currentValue;
+}
+
+- (void)checkEndGame
+{
+    if (round == selectedRounds) {
+        [self updateLabels];
+        [self startOver];
+    } else {
+        [self startNewRound];
+        [self updateLabels];
+    }
 }
 
 - (void)startNewGame
@@ -112,7 +153,9 @@
         cancelButtonTitle:@"OK"
         otherButtonTitles:nil];
 
+    [self updateLabels];
     [alertView show];
+    
 }
 
 - (IBAction)sliderMoved:(UISlider *)sender
@@ -140,10 +183,21 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (IBAction)showSettings:(id)sender
 {
-    [self startNewRound];
-    [self updateLabels];
+    SettingsViewController *controller = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    controller.delegate = self;
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self checkEndGame];
+}
+
+- (void)viewDidUnload {
+    [self setSelectedRoundsLabel:nil];
+    [super viewDidUnload];
+}
 @end

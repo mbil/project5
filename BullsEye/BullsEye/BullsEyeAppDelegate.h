@@ -15,5 +15,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) BullsEyeViewController *viewController;
+@property (nonatomic) BOOL loadPlist;
+@property (nonatomic) NSUInteger selectedRounds;
 
 @end
