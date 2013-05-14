@@ -124,7 +124,7 @@
     // Array voor de highscores
     NSArray *dataFromPlist = [highscores valueForKey:@"highscore"];
     
-    // Maak variabel aan voor de highscores uit de plist
+    // Maak number variabel aan voor de highscores uit de plist
     NSNumber *scoresPlist;
     
     // Maak variabel voor alertmessage
@@ -148,12 +148,12 @@
             else if (score > [scoresPlist intValue])
             {
                 // Kopieer dictionary
-                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
                 // Wijzig highscore en datum
-                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
-                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
                 // Vervang oude dictionary voor nieuwe
-                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                [highscores replaceObjectAtIndex:i withObject:newestDictionary];
                 
                 // Alert player met nieuwe highscore
                 alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
@@ -178,10 +178,10 @@
             
             else if ((score > [scoresPlist intValue]) && (score != [scoresPlist intValue]))
             {
-                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
-                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
-                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
-                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                [highscores replaceObjectAtIndex:i withObject:newestDictionary];
 
                 alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
                 UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -205,10 +205,10 @@
             
             else if ((score > [scoresPlist intValue]) && (score != [scoresPlist intValue]))
             {
-                NSMutableDictionary *firstDictionary = [[highscores objectAtIndex:i] mutableCopy];
-                [firstDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
-                [firstDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
-                [highscores replaceObjectAtIndex:i withObject:firstDictionary];
+                NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
+                [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+                [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+                [highscores replaceObjectAtIndex:i withObject:newestDictionary];
                 
                 alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
                 UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

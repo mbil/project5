@@ -86,6 +86,7 @@
     if (self.roundsOption.selectedSegmentIndex == 0)
     {
         selectedRounds = @"1";
+        
         // Zoek in array naar rounds = 1
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
         // Filter de array
@@ -128,6 +129,18 @@
     
     return cell;
 }
+
+//+ (void)fillTextCells
+//{
+//    // Zoek in array naar rounds = 1
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
+//    // Filter de array
+//    NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
+//    NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
+//    // Selecteer uit de gefilterde array de integers met key highscore en date
+//    NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
+//    NSString *date = [highscores objectForKey:@"date"];
+//}
 
 // Method voor het reloaden van de table nadat segment is geselecteerd
 - (void)segmentedControlIndexChanged
