@@ -34,30 +34,6 @@
 @synthesize scoreLabel;
 @synthesize roundLabel;
 
-- (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
-    [self generateValue];
-    [self updateLabels];
-    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
-    if (appDelegate.loadPlist) {
-        self.selectedRoundsLabel.text = @"On";
-    } else {
-        self.selectedRoundsLabel.text = @"Off";
-    }
-    if (appDelegate.selectedRounds == 0) {
-        selectedRounds = 1;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-    }else if (appDelegate.selectedRounds == 1) {
-        selectedRounds = 5;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-        
-    }else if (appDelegate.selectedRounds == 2) {
-        selectedRounds = 10;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-    }else {
-        self.selectedRoundsLabel2.text = @"1";
-    }
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidLoad
 {
@@ -82,6 +58,30 @@
     currentValue2 = (int) slider.selectedMaximumValue;
 }
 
+- (void)applySettings
+{
+    [self generateValue];
+    [self updateLabels];
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.loadPlist) {
+        self.selectedRoundsLabel.text = @"On";
+    } else {
+        self.selectedRoundsLabel.text = @"Off";
+    }
+    if (appDelegate.selectedRounds == 0) {
+        selectedRounds = 1;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+    }else if (appDelegate.selectedRounds == 1) {
+        selectedRounds = 5;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+        
+    }else if (appDelegate.selectedRounds == 2) {
+        selectedRounds = 10;
+        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
+    }else {
+        self.selectedRoundsLabel2.text = @"1";
+    }
+}
 
 - (void)updateLabels
 {
@@ -147,6 +147,7 @@
 
 - (void)startNewGame
 {
+    [self applySettings];
     score = 0;
     round = 0;
     [self startNewRound];

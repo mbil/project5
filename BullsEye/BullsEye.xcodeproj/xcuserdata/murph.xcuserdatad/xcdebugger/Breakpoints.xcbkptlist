@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BullsEye/BullsEyeViewController.m"
-         timestampString = "390229006.188427"
+         timestampString = "390234135.89759"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "117"
-         endingLineNumber = "117"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>

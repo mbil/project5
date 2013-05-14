@@ -317,8 +317,8 @@
 		BAA3EDBC172029FB00FC5F59 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
 				3D5B6ECB1742641600F2872E /* values.plist */,
+				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
 				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
 				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
 			);
