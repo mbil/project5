@@ -18,5 +18,6 @@
 @property (nonatomic) BOOL loadPlist;
 @property (nonatomic) BOOL evilGamePlay;
 @property (nonatomic) NSUInteger selectedRounds;
+@property (nonatomic) NSUInteger selectedPlist;
 
 @end

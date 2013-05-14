@@ -96,8 +96,13 @@
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (appDelegate.loadPlist == YES) {
         int randomGeneratedNumber1 = (arc4random()%10);
-        int randomGeneratedNumber2 = (arc4random()%10);
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"values" ofType:@"plist"];
+        int randomGeneratedNumber2;
+        if (appDelegate.selectedPlist == 0) {
+            randomGeneratedNumber2 = (arc4random()%10);
+        }else{
+            randomGeneratedNumber2 = 10 +(arc4random()%10);
+        }
+        NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"values%d", appDelegate.selectedPlist] ofType:@"plist"];
         NSMutableArray *values = [NSMutableArray arrayWithContentsOfFile:path];
         int temptargetValue1 = ([[values objectAtIndex:(randomGeneratedNumber1)]intValue] % 50);
         if (temptargetValue1 == 0) {
@@ -105,7 +110,7 @@
         } else {
             targetValue1 = temptargetValue1;
         }
-        targetValue2 = 50 + ([[values objectAtIndex:(randomGeneratedNumber2)]intValue] % 50);
+        targetValue2 = [[values objectAtIndex:(randomGeneratedNumber2)]intValue];
     } else {
         targetValue1 = 1 + (arc4random() % 50);
         targetValue2 = 51 + (arc4random() % 50);

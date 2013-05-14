@@ -21,7 +21,9 @@
 @property (weak, nonatomic) id <SettingsViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *pickPlist;
 
 - (IBAction)done;
+- (IBAction)togglePlist;
 
 @end

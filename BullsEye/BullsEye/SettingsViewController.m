@@ -26,9 +26,16 @@
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     BullsEyeAppDelegate *delegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     self.toggleSwitch.on = delegate.loadPlist;
+    if (delegate.loadPlist == NO) {
+        [self.pickPlist setHidden:YES];
+    }else {
+        [self.pickPlist setHidden:NO];
+    }
+    self.pickPlist.selectedSegmentIndex = delegate.selectedPlist;
     self.segmentControl.selectedSegmentIndex = delegate.selectedRounds;
     // Do any additional setup after loading the view from its nib.
 }
@@ -48,7 +55,16 @@
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.loadPlist = self.toggleSwitch.on;
     appDelegate.selectedRounds = self.segmentControl.selectedSegmentIndex;
+    appDelegate.selectedPlist = self.pickPlist.selectedSegmentIndex;
     [self.delegate settingsViewControllerDidFinish:self];
+}
+
+- (IBAction)togglePlist {
+    if (self.toggleSwitch.on == YES) {
+        [self.pickPlist setHidden:NO];
+    } else {
+        [self.pickPlist setHidden:YES];
+    }
 }
 
 @end

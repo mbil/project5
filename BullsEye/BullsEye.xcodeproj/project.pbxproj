@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D18358417428CA900C1FC0B /* values1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18358317428CA900C1FC0B /* values1.plist */; };
 		3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */; };
-		3D5B6ECC1742641600F2872E /* values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6ECB1742641600F2872E /* values.plist */; };
+		3D5B6ECC1742641600F2872E /* values0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6ECB1742641600F2872E /* values0.plist */; };
 		3D7D879417427BD700D8E1D1 /* bar-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D879317427BD700D8E1D1 /* bar-highlight.png */; };
 		3D7D966B17413F2800ABD83C /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D966817413F2800ABD83C /* HighScoreViewController.m */; };
 		3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966917413F2800ABD83C /* HighScoreViewController.xib */; };
@@ -70,8 +71,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D18358317428CA900C1FC0B /* values1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = values1.plist; sourceTree = "<group>"; };
 		3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = evilhighscorelist.plist; sourceTree = "<group>"; };
-		3D5B6ECB1742641600F2872E /* values.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = values.plist; sourceTree = "<group>"; };
+		3D5B6ECB1742641600F2872E /* values0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = values0.plist; sourceTree = "<group>"; };
 		3D7D879317427BD700D8E1D1 /* bar-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight.png"; sourceTree = "<group>"; };
 		3D7D966717413F2800ABD83C /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		3D7D966817413F2800ABD83C /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
@@ -317,7 +319,8 @@
 		BAA3EDBC172029FB00FC5F59 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				3D5B6ECB1742641600F2872E /* values.plist */,
+				3D5B6ECB1742641600F2872E /* values0.plist */,
+				3D18358317428CA900C1FC0B /* values1.plist */,
 				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
 				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
 				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
@@ -451,8 +454,9 @@
 				3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */,
 				3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */,
 				3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */,
-				3D5B6ECC1742641600F2872E /* values.plist in Resources */,
+				3D5B6ECC1742641600F2872E /* values0.plist in Resources */,
 				3D7D879417427BD700D8E1D1 /* bar-highlight.png in Resources */,
+				3D18358417428CA900C1FC0B /* values1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
