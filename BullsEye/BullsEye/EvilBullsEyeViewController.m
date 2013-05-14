@@ -35,6 +35,8 @@
 @synthesize roundLabel;
 
 - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
+    [self generateValue];
+    [self updateLabels];
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (appDelegate.loadPlist) {
         self.selectedRoundsLabel.text = @"On";
