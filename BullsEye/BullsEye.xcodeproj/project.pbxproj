@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */; };
 		3D7D966B17413F2800ABD83C /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D966817413F2800ABD83C /* HighScoreViewController.m */; };
 		3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966917413F2800ABD83C /* HighScoreViewController.xib */; };
 		3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966A17413F2800ABD83C /* highscorelist.plist */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = evilhighscorelist.plist; sourceTree = "<group>"; };
 		3D7D966717413F2800ABD83C /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		3D7D966817413F2800ABD83C /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		3D7D966917413F2800ABD83C /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				3D7D966817413F2800ABD83C /* HighScoreViewController.m */,
 				3D7D966917413F2800ABD83C /* HighScoreViewController.xib */,
 				3D7D966A17413F2800ABD83C /* highscorelist.plist */,
+				3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */,
 			);
 			name = Highscores;
 			sourceTree = "<group>";
@@ -374,7 +377,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BullsEye;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Hollance;
 			};
 			buildConfigurationList = 7B0D44CA1578BEF500F7BBC0 /* Build configuration list for PBXProject "BullsEye" */;
@@ -445,6 +448,7 @@
 				3D8815A71740F31F007448CC /* SettingsViewController.xib in Resources */,
 				3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */,
 				3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */,
+				3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +498,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -519,6 +527,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -7,6 +7,7 @@
 //
 
 #import "HighScoreViewController.h"
+#import "BullsEyeAppDelegate.h"
 
 @interface HighScoreViewController ()
 
@@ -22,13 +23,24 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
         // Load de property list
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
-        NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
-        
-        // Sorteer op descending
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
-        sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];        
+        if (appDelegate.evilGamePlay == NO) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
+            NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
+            
+            // Sorteer op descending
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
+            sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
+        }else {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
+            NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
+            
+            // Sorteer op descending
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
+            sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
+        }  
+             
     }
     return self;
 }

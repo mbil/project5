@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) BullsEyeViewController *viewController;
 @property (nonatomic) BOOL loadPlist;
+@property (nonatomic) BOOL evilGamePlay;
 @property (nonatomic) NSUInteger selectedRounds;
 
 @end

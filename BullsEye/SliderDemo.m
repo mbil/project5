@@ -57,9 +57,7 @@
     _minThumb.center = CGPointMake([self xForValue:selectedMinimumValue], self.center.y);
     
     _maxThumb.center = CGPointMake([self xForValue:selectedMaximumValue], self.center.y);
-    
-    
-    NSLog(@"Tapable size %f", _minThumb.bounds.size.width);
+
     [self updateTrackHighlight];
     
     

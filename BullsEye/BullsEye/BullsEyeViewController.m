@@ -31,6 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.toggleSwitch.on = appDelegate.evilGamePlay;
     if (appDelegate.loadPlist) {
         self.selectedRoundsLabel.text = @"ja";
     } else {
@@ -62,13 +63,6 @@
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
-}
-	
-- (IBAction)toggleEvil:(id)sender {
-    EvilBullsEyeViewController *evil = [[EvilBullsEyeViewController alloc] initWithNibName:nil bundle:nil];
-    
-    [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentModalViewController:evil animated:YES];
 }
 
 - (void)startNewRound
@@ -104,7 +98,8 @@
     [super viewDidLoad];
     [self startNewGame];
     [self updateLabels];
-
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.toggleSwitch.on = appDelegate.evilGamePlay;
     UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
     [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
  
@@ -320,5 +315,14 @@
 - (void)viewDidUnload {
     [self setSelectedRoundsLabel:nil];
     [super viewDidUnload];
+}
+
+- (IBAction)toggleEvil:(id)sender {
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.evilGamePlay = self.toggleSwitch.on;
+    EvilBullsEyeViewController *evil = [[EvilBullsEyeViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:evil animated:YES];
 }
 @end

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel2;
+@property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
 - (IBAction)showAlert;
 - (IBAction)sliderMoved:(UISlider *)sender;

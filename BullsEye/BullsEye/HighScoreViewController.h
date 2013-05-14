@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsViewController.h"
 
 @interface HighScoreViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
