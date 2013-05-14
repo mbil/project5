@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "SettingsViewController.h"
 #import "BullsEyeAppDelegate.h"
 
@@ -60,10 +61,19 @@
 }
 
 - (IBAction)togglePlist {
+    self.pickPlist.layer.shouldRasterize = YES;
     if (self.toggleSwitch.on == YES) {
-        [self.pickPlist setHidden:NO];
+        self.pickPlist.alpha = 0;
+        self.pickPlist.hidden = NO;
+        [UIView animateWithDuration:0.2 animations:^{
+            self.pickPlist.alpha = 1;
+        }];
     } else {
-        [self.pickPlist setHidden:YES];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.pickPlist.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.pickPlist.hidden = YES;
+        }];
     }
 }
 
