@@ -23,7 +23,7 @@
     if (self) {
         _minThumbOn = false;
         _maxThumbOn = false;
-        _padding = 30;
+        _padding = 7;
         
         _trackBackground = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar-background.png"]] autorelease];
         //        _trackBackground.frame=CGRectMake(self.frame.origin.x,self.frame.origin.y, self.frame.size.width,11);

@@ -32,10 +32,12 @@
 - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     self.toggleSwitch.on = appDelegate.evilGamePlay;
+    [self generateValue];
+    [self updateLabels];
     if (appDelegate.loadPlist) {
-        self.selectedRoundsLabel.text = @"ja";
+        self.selectedRoundsLabel.text = @"On";
     } else {
-        self.selectedRoundsLabel.text = @"nee";
+        self.selectedRoundsLabel.text = @"Off";
     }
     if (appDelegate.selectedRounds == 0) {
         selectedRounds = 1;
@@ -65,12 +67,25 @@
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
 }
 
+
+- (void)generateValue
+{
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.loadPlist == YES) {
+        int randomGeneratedNumber = (arc4random()%10);
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"values" ofType:@"plist"];
+        NSMutableArray *values = [NSMutableArray arrayWithContentsOfFile:path];
+        targetValue = [[values objectAtIndex:(randomGeneratedNumber)]intValue];
+    } else {
+        targetValue = 1 + (arc4random() % 100);
+    }
+}
+
 - (void)startNewRound
 {
     round += 1;
-        
-    targetValue = 1 + (arc4random() % 100);
-        
+    [self generateValue];
+       
     currentValue = 50;
     self.slider.value = currentValue;
 }

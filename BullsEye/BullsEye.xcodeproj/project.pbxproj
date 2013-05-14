@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */; };
+		3D5B6ECC1742641600F2872E /* values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6ECB1742641600F2872E /* values.plist */; };
+		3D7D879417427BD700D8E1D1 /* bar-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D879317427BD700D8E1D1 /* bar-highlight.png */; };
 		3D7D966B17413F2800ABD83C /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D966817413F2800ABD83C /* HighScoreViewController.m */; };
 		3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966917413F2800ABD83C /* HighScoreViewController.xib */; };
 		3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966A17413F2800ABD83C /* highscorelist.plist */; };
@@ -60,7 +62,6 @@
 		BAA3EDBA172029DA00FC5F59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDB9172029DA00FC5F59 /* Default-568h@2x.png */; };
 		BAA3EDC817202B5100FC5F59 /* bar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC017202B5100FC5F59 /* bar-background.png */; };
 		BAA3EDC917202B5100FC5F59 /* bar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */; };
-		BAA3EDCA17202B5100FC5F59 /* bar-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC217202B5100FC5F59 /* bar-highlight.png */; };
 		BAA3EDCB17202B5100FC5F59 /* bar-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */; };
 		BAA3EDCC17202B5100FC5F59 /* handle-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC417202B5100FC5F59 /* handle-hover.png */; };
 		BAA3EDCD17202B5100FC5F59 /* handle-hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */; };
@@ -70,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = evilhighscorelist.plist; sourceTree = "<group>"; };
+		3D5B6ECB1742641600F2872E /* values.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = values.plist; sourceTree = "<group>"; };
+		3D7D879317427BD700D8E1D1 /* bar-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight.png"; sourceTree = "<group>"; };
 		3D7D966717413F2800ABD83C /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		3D7D966817413F2800ABD83C /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		3D7D966917413F2800ABD83C /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
@@ -132,7 +135,6 @@
 		BAA3EDB9172029DA00FC5F59 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BAA3EDC017202B5100FC5F59 /* bar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-background.png"; sourceTree = "<group>"; };
 		BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-background@2x.png"; sourceTree = "<group>"; };
-		BAA3EDC217202B5100FC5F59 /* bar-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight.png"; sourceTree = "<group>"; };
 		BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-highlight@2x.png"; sourceTree = "<group>"; };
 		BAA3EDC417202B5100FC5F59 /* handle-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handle-hover.png"; sourceTree = "<group>"; };
 		BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handle-hover@2x.png"; sourceTree = "<group>"; };
@@ -240,9 +242,9 @@
 		7B0D4518157A09E600F7BBC0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D7D879317427BD700D8E1D1 /* bar-highlight.png */,
 				BAA3EDC017202B5100FC5F59 /* bar-background.png */,
 				BAA3EDC117202B5100FC5F59 /* bar-background@2x.png */,
-				BAA3EDC217202B5100FC5F59 /* bar-highlight.png */,
 				BAA3EDC317202B5100FC5F59 /* bar-highlight@2x.png */,
 				BAA3EDC417202B5100FC5F59 /* handle-hover.png */,
 				BAA3EDC517202B5100FC5F59 /* handle-hover@2x.png */,
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				7B0D44E61578BEF600F7BBC0 /* BullsEyeViewController.h */,
+				3D5B6ECB1742641600F2872E /* values.plist */,
 				7B0D44E71578BEF600F7BBC0 /* BullsEyeViewController.m */,
 				7B0D44E91578BEF600F7BBC0 /* BullsEyeViewController.xib */,
 			);
@@ -439,7 +442,6 @@
 				BAA3EDBA172029DA00FC5F59 /* Default-568h@2x.png in Resources */,
 				BAA3EDC817202B5100FC5F59 /* bar-background.png in Resources */,
 				BAA3EDC917202B5100FC5F59 /* bar-background@2x.png in Resources */,
-				BAA3EDCA17202B5100FC5F59 /* bar-highlight.png in Resources */,
 				BAA3EDCB17202B5100FC5F59 /* bar-highlight@2x.png in Resources */,
 				BAA3EDCC17202B5100FC5F59 /* handle-hover.png in Resources */,
 				BAA3EDCD17202B5100FC5F59 /* handle-hover@2x.png in Resources */,
@@ -449,6 +451,8 @@
 				3D7D966C17413F2800ABD83C /* HighScoreViewController.xib in Resources */,
 				3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */,
 				3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */,
+				3D5B6ECC1742641600F2872E /* values.plist in Resources */,
+				3D7D879417427BD700D8E1D1 /* bar-highlight.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

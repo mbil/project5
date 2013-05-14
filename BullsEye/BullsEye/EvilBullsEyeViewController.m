@@ -37,9 +37,9 @@
 - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated];
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (appDelegate.loadPlist) {
-        self.selectedRoundsLabel.text = @"ja";
+        self.selectedRoundsLabel.text = @"On";
     } else {
-        self.selectedRoundsLabel.text = @"nee";
+        self.selectedRoundsLabel.text = @"Off";
     }
     if (appDelegate.selectedRounds == 0) {
         selectedRounds = 1;
@@ -67,16 +67,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     self.toggleSwitch.on = appDelegate.evilGamePlay;
-    UIView *VctrDtl=[[UIView alloc]initWithFrame:CGRectMake(80,110,300, 15)];
-    SliderDemo *sliderVctr=[[SliderDemo alloc] initWithFrame:CGRectMake(VctrDtl.bounds.origin.x,VctrDtl.bounds.origin.y,VctrDtl.bounds.size.width, VctrDtl.bounds.size.height)];
-    sliderVctr.minimumValue =0;
-    sliderVctr.selectedMinimumValue = 20;
-    sliderVctr.maximumValue = 100;
-    sliderVctr.selectedMaximumValue = 80;
-    sliderVctr.minimumRange = 10;
-    [sliderVctr addTarget:self action:@selector(updateRangeLabel:) forControlEvents:UIControlEventValueChanged];
-    [VctrDtl addSubview:sliderVctr];
-    [self.view addSubview:VctrDtl];
+    [self loadSlider];
 }
 
 - (void)settingsViewControllerDidFinish:(SettingsViewController *)controller
@@ -98,14 +89,46 @@
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
 }
 
+- (void)generateValue
+{
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.loadPlist == YES) {
+        int randomGeneratedNumber1 = (arc4random()%10);
+        int randomGeneratedNumber2 = (arc4random()%10);
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"values" ofType:@"plist"];
+        NSMutableArray *values = [NSMutableArray arrayWithContentsOfFile:path];
+        int temptargetValue1 = ([[values objectAtIndex:(randomGeneratedNumber1)]intValue] % 50);
+        if (temptargetValue1 == 0) {
+            targetValue1 = 10;
+        } else {
+            targetValue1 = temptargetValue1;
+        }
+        targetValue2 = 50 + ([[values objectAtIndex:(randomGeneratedNumber2)]intValue] % 50);
+    } else {
+        targetValue1 = 1 + (arc4random() % 50);
+        targetValue2 = 51 + (arc4random() % 50);
+    }
+}
+
+- (void)loadSlider
+{
+    UIView *VctrDtl=[[UIView alloc]initWithFrame:CGRectMake(50,110,380, 15)];
+    SliderDemo *sliderVctr=[[SliderDemo alloc] initWithFrame:CGRectMake(VctrDtl.bounds.origin.x,VctrDtl.bounds.origin.y,VctrDtl.bounds.size.width, VctrDtl.bounds.size.height)];
+    sliderVctr.minimumValue =0;
+    sliderVctr.selectedMinimumValue = 20;
+    sliderVctr.maximumValue = 100;
+    sliderVctr.selectedMaximumValue = 80;
+    sliderVctr.minimumRange = 10;
+    [sliderVctr addTarget:self action:@selector(updateRangeLabel:) forControlEvents:UIControlEventValueChanged];
+    [VctrDtl addSubview:sliderVctr];
+    [self.view addSubview:VctrDtl];
+}
 
 - (void)startNewRound
 {
     
     round += 1;
-    
-    targetValue1 = 1 + (arc4random() % 50);
-    targetValue2 = 51 + (arc4random() % 50);
+    [self generateValue];
 
 }
 
