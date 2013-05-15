@@ -15,6 +15,8 @@
 @implementation HighScoreViewController
 
 @synthesize sortedHighScores;
+@synthesize indexToPath;
+@synthesize cellFromTableView;
 
 // Initialiseren
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,7 +63,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;
-    //return [sortedHighScores count];
 }
 
 // Invullen tablecells
@@ -79,48 +80,21 @@
     // Roep method segmentedControlIndexChanged als value van segment veranderd
     [self.roundsOption addTarget:self action:@selector(segmentedControlIndexChanged) forControlEvents:UIControlEventValueChanged];
     
-    // selectedRounds = 'leeg'
-    NSString *selectedRounds = @"";
+    // maak 2 globale variabelen aan, indexPath en cell werken niet buiten deze methode
+    indexToPath = indexPath;
+    cellFromTableView = cell;
 
-    // Als eerste segment is geselecteerd
     if (self.roundsOption.selectedSegmentIndex == 0)
     {
-        selectedRounds = @"1";
-        
-        // Zoek in array naar rounds = 1
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        // Filter de array
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        // Selecteer uit de gefilterde array de integers met key highscore en date
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        
-        // Schrijf highscores en dates in de cellen
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+        [self retrieveWithSelectedRounds:@"1"];
     }
     else if (self.roundsOption.selectedSegmentIndex == 1)
     {
-        selectedRounds = @"5";
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+        [self retrieveWithSelectedRounds:@"5"];
     }
     else if (self.roundsOption.selectedSegmentIndex == 2)
     {
-        selectedRounds = @"10";
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+        [self retrieveWithSelectedRounds:@"10"];
     }
 
     // Verander kleur font van text in cell
@@ -130,17 +104,21 @@
     return cell;
 }
 
-//+ (void)fillTextCells
-//{
-//    // Zoek in array naar rounds = 1
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-//    // Filter de array
-//    NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-//    NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-//    // Selecteer uit de gefilterde array de integers met key highscore en date
-//    NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-//    NSString *date = [highscores objectForKey:@"date"];
-//}
+- (void)retrieveWithSelectedRounds:(NSString*)selectedRounds
+{
+    // Zoek in array naar bijbehorende rounds
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
+    // Filter de array
+    NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
+    NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexToPath.row];
+    // Selecteer uit de gefilterde array de integers met key highscore en date
+    NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
+    NSString *date = [highscores objectForKey:@"date"];
+
+    // Schrijf highscores en dates in de cellen
+    cellFromTableView.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
+    cellFromTableView.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+}
 
 // Method voor het reloaden van de table nadat segment is geselecteerd
 - (void)segmentedControlIndexChanged

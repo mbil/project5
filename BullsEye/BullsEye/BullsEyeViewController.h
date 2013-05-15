@@ -14,6 +14,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
+@property (nonatomic, strong) NSMutableArray *highscores;
+@property (nonatomic, strong) NSArray *dataFromPlist;
+@property (nonatomic, strong) NSNumber *scoresPlist;
 
 - (IBAction)showAlert;
 - (IBAction)sliderMoved:(UISlider *)sender;

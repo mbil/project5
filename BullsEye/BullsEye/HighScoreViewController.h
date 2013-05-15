@@ -13,6 +13,8 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *sortedHighScores;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *roundsOption;
+@property (nonatomic, strong) NSIndexPath *indexToPath;
+@property (nonatomic, strong) UITableViewCell  *cellFromTableView;
 
 - (IBAction)close;
 
