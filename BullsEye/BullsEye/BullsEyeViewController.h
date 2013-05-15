@@ -2,8 +2,8 @@
 //  BullsEyeViewController.h
 //  BullsEye
 //
-//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
-//  Copyright (c) 2012 Hollance. All rights reserved.
+//  Created by Myrthe Bil en Miguel Pruijssers on 18-04-13.
+//  Copyright (c) 2013 App Studio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,9 +16,12 @@
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
-@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel2;
-@property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
+@property (nonatomic, weak) IBOutlet UILabel *selectedRoundsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *selectedRoundsLabel2;
+@property (nonatomic, weak) IBOutlet UISwitch *toggleSwitch;
+@property (nonatomic, strong) NSMutableArray *highscores;
+@property (nonatomic, strong) NSArray *dataFromPlist;
+@property (nonatomic, strong) NSNumber *scoresPlist;
 
 - (IBAction)showAlert;
 - (IBAction)sliderMoved:(UISlider *)sender;

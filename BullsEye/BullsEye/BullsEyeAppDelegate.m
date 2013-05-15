@@ -2,8 +2,8 @@
 //  BullsEyeAppDelegate.m
 //  BullsEye
 //
-//  Created by Myrthe Bil en Miguel Pruijssers on 01-06-12.
-//  Copyright (c) 2012 Hollance. All rights reserved.
+//  Created by Myrthe Bil en Miguel Pruijssers on 18-04-13.
+//  Copyright (c) 2013 App Studio. All rights reserved.
 //
 
 #import "BullsEyeAppDelegate.h"

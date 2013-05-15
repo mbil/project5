@@ -2,8 +2,8 @@
 //  HighScoreViewController.m
 //  BullsEye
 //
-//  Created by Miguel Pruijssers on 18-04-13.
-//  Copyright (c) 2013 Hollance. All rights reserved.
+//  Created by Myrthe Bil en Miguel Pruijssers on 18-04-13.
+//  Copyright (c) 2013 App Studio. All rights reserved.
 //
 
 #import "HighScoreViewController.h"
@@ -16,6 +16,8 @@
 @implementation HighScoreViewController
 
 @synthesize sortedHighScores;
+@synthesize indexToPath;
+@synthesize cellFromTableView;
 
 // Initialiseren
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,23 +28,25 @@
         BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
         // Load de property list
         if (appDelegate.evilGamePlay == NO) {
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
-            NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
-            
-            // Sorteer op descending
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
-            sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
-        }else {
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
-            NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
-            
-            // Sorteer op descending
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
-            sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
-        }  
-             
+            [self retrieveWithSelectedPlist:@"highscorelist"];
+        }
+        
+        else {
+            [self retrieveWithSelectedPlist:@"evilhighscorelist"];
+        }
     }
     return self;
+}
+
+// Selecteer juiste plist en sorteer
+- (void)retrieveWithSelectedPlist:(NSString*)properPlist
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", properPlist] ofType:@"plist"];
+    NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
+    
+    // Sorteer op descending
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
+    sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
 }
 
 // ViewDidLoad
@@ -73,7 +77,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;
-    //return [sortedHighScores count];
 }
 
 // Invullen tablecells
@@ -83,55 +86,26 @@
     static NSString *CellIdentifier = @"highScoreCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil)
-    {
+    if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 
     // Roep method segmentedControlIndexChanged als value van segment veranderd
     [self.roundsOption addTarget:self action:@selector(segmentedControlIndexChanged) forControlEvents:UIControlEventValueChanged];
     
-    // selectedRounds = 'leeg'
-    NSString *selectedRounds = @"";
+    // maak 2 globale variabelen aan, indexPath en cell werken niet buiten deze methode
+    indexToPath = indexPath;
+    cellFromTableView = cell;
 
     // Als eerste segment is geselecteerd
-    if (self.roundsOption.selectedSegmentIndex == 0)
-    {
-        selectedRounds = @"1";
-        // Zoek in array naar rounds = 1
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        // Filter de array
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        // Selecteer uit de gefilterde array de integers met key highscore en date
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        
-        // Schrijf highscores en dates in de cellen
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+    if (self.roundsOption.selectedSegmentIndex == 0) {
+        [self retrieveWithSelectedRounds:@"1"];
     }
-    else if (self.roundsOption.selectedSegmentIndex == 1)
-    {
-        selectedRounds = @"5";
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+    else if (self.roundsOption.selectedSegmentIndex == 1) {
+        [self retrieveWithSelectedRounds:@"5"];
     }
-    else if (self.roundsOption.selectedSegmentIndex == 2)
-    {
-        selectedRounds = @"10";
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-        NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
-        NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexPath.row];
-        NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
-        NSString *date = [highscores objectForKey:@"date"];
-        cell.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
+    else if (self.roundsOption.selectedSegmentIndex == 2) {
+        [self retrieveWithSelectedRounds:@"10"];
     }
 
     // Verander kleur font van text in cell
@@ -139,6 +113,23 @@
     cell.detailTextLabel.textColor = [UIColor redColor];
     
     return cell;
+}
+
+// Haal highscores en dates uit plist en show in tableviewcells
+- (void)retrieveWithSelectedRounds:(NSString*)selectedRounds
+{
+    // Zoek in array naar bijbehorende rounds
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
+    // Filter de array
+    NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
+    NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexToPath.row];
+    // Selecteer uit de gefilterde array de integers met key highscore en date
+    NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
+    NSString *date = [highscores objectForKey:@"date"];
+    
+    // Schrijf highscores en dates in de cellen
+    cellFromTableView.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
+    cellFromTableView.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
 }
 
 // Method voor het reloaden van de table nadat segment is geselecteerd
@@ -159,6 +150,7 @@
     }
 }
 
+// Close
 - (IBAction)close
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
