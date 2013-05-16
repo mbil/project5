@@ -60,7 +60,7 @@
         NSMutableArray *values = [NSMutableArray arrayWithContentsOfFile:path];
         targetValue = [[values objectAtIndex:(randomGeneratedNumber)]intValue];
     } else {
-        targetValue = 1 + (arc4random() % 100);
+        targetValue = 1 + (arc4random() % 99);
     }
 }
 
@@ -70,7 +70,7 @@
     round += 1;
     [self generateValue];
        
-    currentValue = 50;
+    currentValue = 1 + (arc4random() % 99);
     self.slider.value = currentValue;
 }
 

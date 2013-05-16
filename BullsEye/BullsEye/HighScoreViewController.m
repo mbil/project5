@@ -137,11 +137,7 @@
 {
     switch ([self.roundsOption selectedSegmentIndex]) {
         case 0:
-            [self.tableView reloadData];
-            break;
         case 1:
-            [self.tableView reloadData];
-            break;
         case 2:
             [self.tableView reloadData];
             break;
