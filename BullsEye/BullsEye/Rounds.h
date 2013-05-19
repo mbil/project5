@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Rounds : NSObject
+@protocol RoundsDelegate <NSObject>
+-(void)numberOfRoundsHasChangedTo:(int)number;
+@end
+
+@interface Rounds : NSObject{
+    int selectedRounds;
+}
+
+@property (nonatomic,strong) id <RoundsDelegate> delegate;
+
+- (void)getRounds;
 
 @end
