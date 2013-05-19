@@ -21,7 +21,7 @@
     int targetValue;
     int score;
     int round;
-    int selectedRounds;
+    int currentSelectedRounds;
 }
 
 @synthesize slider;
@@ -72,13 +72,18 @@
 
 - (void)checkEndGame
 {
-    if (round == selectedRounds) {
+    if (round == currentSelectedRounds) {
         [self updateLabels];
         [self startOver];
     } else {
         [self startNewRound];
         [self updateLabels];
     }
+}
+
+- (void)numberOfRoundsHasChangedTo:(int)number{
+    _selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", number];
+    currentSelectedRounds = number;
 }
 
 - (void)applySettings
@@ -92,19 +97,9 @@
     } else {
         self.selectedRoundsLabel.text = @"Off";
     }
-    if (appDelegate.selectedRounds == 0) {
-        selectedRounds = 1;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-    }else if (appDelegate.selectedRounds == 1) {
-        selectedRounds = 5;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-        
-    }else if (appDelegate.selectedRounds == 2) {
-        selectedRounds = 10;
-        self.selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", selectedRounds];
-    }else {
-        self.selectedRoundsLabel2.text = @"1";
-    }
+    Rounds *nl = [[Rounds alloc] init];
+    nl.delegate = self;
+    [nl getRounds];
 }
 
 - (void)startNewGame
@@ -118,8 +113,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    Rounds *nl = [[Rounds alloc] init];
+    nl.delegate = self;
+    [nl getRounds];
     [self startNewGame];
     [self updateLabels];
+    Rounds *rounds = [[Rounds alloc] init];
+    rounds.delegate = self;
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.toggleSwitch.on = appDelegate.evilGamePlay;
     UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
@@ -204,7 +204,7 @@
     NSString *alertMessage = nil;
     
     // Als ronde 1 is voltooid
-    if (selectedRounds == 1)
+    if (currentSelectedRounds == 1)
     {
         // Loop door de eerste 5 highscores van de bijbehorende ronde
         for (int i = 0; i < 5; i++)
@@ -239,7 +239,7 @@
         }
     }
     
-    else if (selectedRounds == 5)
+    else if (currentSelectedRounds == 5)
     {
         for (int i = 5; i < 10; i++)
         {
@@ -266,7 +266,7 @@
         }
     }
     
-    else if (selectedRounds == 10)
+    else if (currentSelectedRounds == 10)
     {
         for (int i = 10; i < 15; i++)
         {
