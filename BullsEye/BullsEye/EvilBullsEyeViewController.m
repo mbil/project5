@@ -23,9 +23,9 @@
     int currentValue2;
     int targetValue1;
     int targetValue2;
-    int score;
     int round;
     int currentSelectedRounds;
+    NSString *message;
 }
 
 @synthesize lblForRange = _lblForRange;
@@ -67,28 +67,14 @@
     currentValue2 = (int) slider.selectedMaximumValue;
 }
 
-- (void)applySettings
-{
-    [self generateValue];
-    [self updateLabels];
-    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
-    if (appDelegate.loadPlist) {
-        self.loadPlistLabel.text = @"On";
-    } else {
-        self.loadPlistLabel.text = @"Off";
-    }
-    // update label of the current selected rounds
-    Rounds *nl = [[Rounds alloc] init];
-    nl.delegate = self;
-    [nl getRounds];
-}
-
 - (void)updateLabels
 {
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     self.targetLabel1.text = [NSString stringWithFormat:@"%d", targetValue1];
     self.targetLabel2.text = [NSString stringWithFormat:@"%d", targetValue2];
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", appDelegate.score];
+    appDelegate.currentSelectedRounds = currentSelectedRounds;
 }
 
 - (void)generateValue
@@ -147,10 +133,8 @@
 
 - (void)startNewRound
 {
-    
     round += 1;
     [self generateValue];
-
 }
 
 - (void)checkEndGame
@@ -164,19 +148,33 @@
     }
 }
 
-// update selected rounds label and value currentselectedrounds
-- (void)numberOfRoundsHasChangedTo:(int)number{
-    _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
-    currentSelectedRounds = number;
+- (void)applySettings
+{
+    [self generateValue];
+    [self updateLabels];
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.loadPlist) {
+        self.loadPlistLabel.text = @"On";
+    } else {
+        self.loadPlistLabel.text = @"Off";
+    }
+    // update label of the current selected rounds
+    Rounds *nl = [[Rounds alloc] init];
+    nl.delegate = self;
+    [nl getRounds];
 }
 
 - (void)startNewGame
 {
     [self applySettings];
-    score = 0;
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    [scores resetScore];
     round = 0;
     [self startNewRound];
 }
+
+
 
 - (void)viewDidUnload
 {
@@ -189,112 +187,117 @@
 - (IBAction)showAlert
 {
     // calculate difference
-    int difference1 = abs(targetValue1 - currentValue1);
-    int difference2 = abs(targetValue2 - currentValue2);
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    scores.currentValue1 = currentValue1;
+    scores.currentValue2 = currentValue2;
+    scores.targetValue1 = targetValue1;
+    scores.targetValue2 = targetValue2;
+    [scores calculatePointsRound];
     
-    int totaldifference = difference1 + difference2;
-    int points = 100 - totaldifference;
     
-    NSString *title;
-    if (totaldifference == 0) {
-        title = @"Perfect!";
-        points += 100;
-    } else if (totaldifference < 10) {
-        if (totaldifference == 2) {
-            points += 50;
-        }
-        title = @"You almost had it!";
-    } else if (totaldifference < 20) {
-        title = @"Pretty good!";
+
+    // message depending on difference
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.difference == 0) {
+        self.title = @"Perfect!";        
+    } else if (appDelegate.difference < 10) {
+        self.title = @"You almost had it!";
+    } else if (appDelegate.difference < 20) {
+        self.title = @"Pretty good!";
     } else {
-        title = @"Not even close...";
+        self.title = @"Not even close...";
     }
     
-    score += points;
-    
-    NSString *message = [NSString stringWithFormat:@"You scored %d points", points];
-    
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:title
+                              initWithTitle:self.title
                               message:message
                               delegate:self
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
-    
-    [self updateLabels];
     [alertView show];
+}
+
+- (void)pointsScored:(int)number
+{
+    message = [NSString stringWithFormat:@"You scored %d points", number];
+    [self updateLabels];
+
 }
 
 
 - (IBAction)startOver
 {
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    [scores saveHighscores];
     
-    // Load property list
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
-    highscores = [NSMutableArray arrayWithContentsOfFile:path];
-    
-    // Array for the highscores
-    dataFromPlist = [highscores valueForKey:@"highscore"];
-    
-
-    if (currentSelectedRounds == 1) {
-        for (int i = 0; i < 5; i++) {
-            // Fill variable with a highscore
-            scoresPlist = [dataFromPlist objectAtIndex:i];
-            
-            // If the highscore already exists, break loop
-            if (score == [scoresPlist intValue]) {
-                break;
-            }
-            
-            // If the new score is higher than an old highscore, replace the lower one
-            else if (score > [scoresPlist intValue]) {
-                [self writeToDictionary:i];
-                [self alertMessage];
-                
-                break;
-            }
-        }
-    }
-    
-
-    else if (currentSelectedRounds == 5) {
-        for (int i = 5; i < 10; i++) {
-            scoresPlist = [dataFromPlist objectAtIndex:i];
-            
-            if (score == [scoresPlist intValue]) {
-                break;
-            }
-            
-            else if (score > [scoresPlist intValue]) {
-                [self writeToDictionary:i];
-                [self alertMessage];
-                
-                break;
-            }
-        }
-    }
-    
-
-    else if (currentSelectedRounds == 10) {
-        for (int i = 10; i < 15; i++) {
-            scoresPlist = [dataFromPlist objectAtIndex:i];
-            
-            if (score == [scoresPlist intValue]) {
-                break;
-            }
-            
-            else if (score > [scoresPlist intValue]) {
-                [self writeToDictionary:i];
-                [self alertMessage];
-                
-                break;
-            }
-        }
-    }
-    
-    // Write to plist
-    [highscores writeToFile:path atomically:YES];
+//    // Load property list
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
+//    highscores = [NSMutableArray arrayWithContentsOfFile:path];
+//    
+//    // Array for the highscores
+//    dataFromPlist = [highscores valueForKey:@"highscore"];
+//    
+//
+//    if (currentSelectedRounds == 1) {
+//        for (int i = 0; i < 5; i++) {
+//            // Fill variable with a highscore
+//            scoresPlist = [dataFromPlist objectAtIndex:i];
+//            
+//            // If the highscore already exists, break loop
+//            if (score == [scoresPlist intValue]) {
+//                break;
+//            }
+//            
+//            // If the new score is higher than an old highscore, replace the lower one
+//            else if (score > [scoresPlist intValue]) {
+//                [self writeToDictionary:i];
+//                [self alertMessage];
+//                
+//                break;
+//            }
+//        }
+//    }
+//    
+//
+//    else if (currentSelectedRounds == 5) {
+//        for (int i = 5; i < 10; i++) {
+//            scoresPlist = [dataFromPlist objectAtIndex:i];
+//            
+//            if (score == [scoresPlist intValue]) {
+//                break;
+//            }
+//            
+//            else if (score > [scoresPlist intValue]) {
+//                [self writeToDictionary:i];
+//                [self alertMessage];
+//                
+//                break;
+//            }
+//        }
+//    }
+//    
+//
+//    else if (currentSelectedRounds == 10) {
+//        for (int i = 10; i < 15; i++) {
+//            scoresPlist = [dataFromPlist objectAtIndex:i];
+//            
+//            if (score == [scoresPlist intValue]) {
+//                break;
+//            }
+//            
+//            else if (score > [scoresPlist intValue]) {
+//                [self writeToDictionary:i];
+//                [self alertMessage];
+//                
+//                break;
+//            }
+//        }
+//    }
+//    
+//    // Write to plist
+//    [highscores writeToFile:path atomically:YES];
     
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
@@ -307,32 +310,33 @@
     [self.view.layer addAnimation:transition forKey:nil];
 }
 
-- (void)writeToDictionary:(NSInteger)i
-{
-    // Today's date
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    NSString *date = [dateFormatter stringFromDate:currentDate];
-    
-    // Fill variable with highscore
-    scoresPlist = [dataFromPlist objectAtIndex:i];
-    
-    // Copy dictionary
-    NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
-    // Change highscore and date
-    [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
-    [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
-    // Replace old dictionary
-    [highscores replaceObjectAtIndex:i withObject:newestDictionary];
-}
+//- (void)writeToDictionary:(NSInteger)i
+//{
+//    // Today's date
+//    NSDate *currentDate = [NSDate date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+//    NSString *date = [dateFormatter stringFromDate:currentDate];
+//    
+//    // Fill variable with highscore
+//    scoresPlist = [dataFromPlist objectAtIndex:i];
+//    
+//    // Copy dictionary
+//    NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
+//    // Change highscore and date
+//    [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
+//    [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
+//    // Replace old dictionary
+//    [highscores replaceObjectAtIndex:i withObject:newestDictionary];
+//}
 
 - (void)alertMessage
 {
     NSString *alertMessage = nil;
     
     // Alert player with new highscore
-    alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+    
+    //alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
     UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [highScoreAlert show];
@@ -380,6 +384,12 @@
     HighScoreViewController *controller = [[HighScoreViewController alloc] initWithNibName:@"HighScoreViewController" bundle:nil];
     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:controller animated:YES completion:nil];
+}
+
+// update selected rounds label and value currentselectedrounds
+- (void)numberOfRoundsHasChangedTo:(int)number{
+    _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
+    currentSelectedRounds = number;
 }
 
 

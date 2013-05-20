@@ -26,7 +26,12 @@
 @property (nonatomic, strong) NSArray *dataFromPlist;
 @property (nonatomic, strong) NSNumber *scoresPlist;
 @property (nonatomic) NSUInteger targetValue;
+@property (nonatomic) NSUInteger targetValue1;
+@property (nonatomic) NSUInteger targetValue2;
 @property (nonatomic) NSUInteger currentValue;
+@property (nonatomic) NSUInteger currentValue1;
+@property (nonatomic) NSUInteger currentValue2;
+@property (nonatomic) NSUInteger difference;
 @property (nonatomic, strong) id <ScoresDelegate> delegate;
 @property (nonatomic) NSString *title;
 

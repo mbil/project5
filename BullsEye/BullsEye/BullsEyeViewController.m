@@ -21,6 +21,7 @@
     int targetValue;
     int round;
     int currentSelectedRounds;
+    NSString *message;
 }
 
 @synthesize slider;
@@ -40,6 +41,37 @@
     // set value of evil switch
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     self.toggleSwitch.on = appDelegate.evilGamePlay;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // update label of current selected rounds
+    Rounds *rounds = [[Rounds alloc] init];
+    rounds.delegate = self;
+    [rounds getRounds];
+    
+    [self startNewGame];
+    [self updateLabels];
+    
+    // initiate slider
+    UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
+    [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
+    
+    UIImage *thumbImageHighlighted = [UIImage imageNamed:@"SliderThumb-Highlighted"];
+    [self.slider setThumbImage:thumbImageHighlighted forState:UIControlStateHighlighted];
+    
+    UIImage *trackLeftImage = [[UIImage imageNamed:@"SliderTrackLeft"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    [self.slider setMinimumTrackImage:trackLeftImage forState:UIControlStateNormal];
+    
+    UIImage *trackRightImage = [[UIImage imageNamed:@"SliderTrackRight"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    [self.slider setMaximumTrackImage:trackRightImage forState:UIControlStateNormal];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 - (void)updateLabels
@@ -122,39 +154,6 @@
     [self startNewRound];
 }
 
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // update label of current selected rounds
-    Rounds *rounds = [[Rounds alloc] init];
-    rounds.delegate = self;
-    [rounds getRounds];
-    
-    [self startNewGame];
-    [self updateLabels];
-
-    // initiate slider
-    UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
-    [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
- 
-    UIImage *thumbImageHighlighted = [UIImage imageNamed:@"SliderThumb-Highlighted"];
-    [self.slider setThumbImage:thumbImageHighlighted forState:UIControlStateHighlighted];
- 
-    UIImage *trackLeftImage = [[UIImage imageNamed:@"SliderTrackLeft"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
-    [self.slider setMinimumTrackImage:trackLeftImage forState:UIControlStateNormal];
- 
-    UIImage *trackRightImage = [[UIImage imageNamed:@"SliderTrackRight"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
-    [self.slider setMaximumTrackImage:trackRightImage forState:UIControlStateNormal];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-}
-
 - (IBAction)showAlert
 {
     Scores *scores = [[Scores alloc] init];
@@ -162,9 +161,33 @@
     scores.currentValue = currentValue;
     scores.targetValue = targetValue;
     [scores calculatePointsRound];
+    
+    // message depending on difference
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (appDelegate.difference == 0) {
+        self.title = @"Perfect!";
+    } else if (appDelegate.difference < 10) {
+        self.title = @"You almost had it!";
+    } else if (appDelegate.difference < 20) {
+        self.title = @"Pretty good!";
+    } else {
+        self.title = @"Not even close...";
+    }
+    
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:self.title
+                              message:message
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
 }
 
-
+- (void)pointsScored:(int)number
+{
+    message = [NSString stringWithFormat:@"You scored %d points", number];
+    [self updateLabels];
+}
 
 - (IBAction)sliderMoved:(UISlider *)sender
 {
@@ -281,7 +304,7 @@
     NSString *alertMessage = nil;
     
     // Alert player with new highscore
-    // alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+//    alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
     UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [highScoreAlert show];
@@ -314,11 +337,11 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-//// if Hit Me button clicked, check if the game has ended
-//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-//{
-//    [self checkEndGame];
-//}
+// if Hit Me button clicked, check if the game has ended
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self checkEndGame];
+}
 
 - (void)viewDidUnload {
     [self setSelectedRoundsLabel:nil];
@@ -334,14 +357,6 @@
     
     [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:evil animated:YES];
-}
-
-// delegate van scores
-- (void)pointsScored:(int)number
-{
-    _scoreLabel.text = [NSString stringWithFormat:@"%d", number];
-    [self updateLabels];
-    [self checkEndGame];
 }
 
 // update selected rounds label and value currentselectedrounds

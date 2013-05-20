@@ -21,5 +21,6 @@
 @property (nonatomic) NSUInteger currentSelectedRounds;
 @property (nonatomic) NSUInteger selectedPlist;
 @property (nonatomic) NSUInteger score;
+@property (nonatomic) NSUInteger difference;
 
 @end

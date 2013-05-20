@@ -29,39 +29,30 @@
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     score = appDelegate.score;
     
-    // calculate difference
-    int difference = abs(self.targetValue - self.currentValue);
-    int points = 100 - difference;
-    
-    // message depending on difference
-    if (difference == 0) {
-        self.title = @"Perfect!";
-        points += 100;
-        
-    } else if (difference < 5) {
-        if (difference == 1) {
-            points += 50;
-        }
-        self.title = @"You almost had it!";
-    } else if (difference < 10) {
-        self.title = @"Pretty good!";
+    int points;
+    int difference;
+    if (appDelegate.evilGamePlay == NO) {
+        difference = abs(self.targetValue - self.currentValue);
+        points = 100 - difference;
     } else {
-        self.title = @"Not even close...";
+        int difference1 = abs(self.targetValue1 - self.currentValue1);
+        int difference2 = abs(self.targetValue2 - self.currentValue2);
+        
+        difference = difference1 + difference2;
+        points = 100 - difference;
     }
     
-    NSString *message = [NSString stringWithFormat:@"You scored %d points", points];
-    
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:self.title
-                              message:message
-                              delegate:self
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-    [alertView show];
-    
+    // message depending on difference
+    if (self.difference == 0) {
+        points += 100;
+    } else if (self.difference == 1) {
+            points += 50;
+        }
+   
     score += points;
     appDelegate.score = score;
-    [self.delegate pointsScored:score]; 
+    appDelegate.difference = difference;
+    [self.delegate pointsScored:points];
 }
 
 - (void)saveHighscores

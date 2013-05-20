@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 #import "Rounds.h"
+#import "Scores.h"
 
-@interface EvilBullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate>
+@interface EvilBullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate, ScoresDelegate>
 
 @property(nonatomic,retain)IBOutlet UILabel *lblForRange;
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel1;
