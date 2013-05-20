@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "EvilBullsEyeViewController.h"
 #import "SettingsViewController.h"
+#import "Rounds.h"
 
-@interface BullsEyeViewController : UIViewController <SettingsViewControllerDelegate>
+@interface BullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate>;
 
+@property (weak, nonatomic) IBOutlet UILabel *loadPlistLabel;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
 @property (nonatomic, weak) IBOutlet UILabel *selectedRoundsLabel;
-@property (nonatomic, weak) IBOutlet UILabel *selectedRoundsLabel2;
 @property (nonatomic, weak) IBOutlet UISwitch *toggleSwitch;
 @property (nonatomic, strong) NSMutableArray *highscores;
 @property (nonatomic, strong) NSArray *dataFromPlist;
