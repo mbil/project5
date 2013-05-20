@@ -18,6 +18,7 @@
 		3D7D966D17413F2800ABD83C /* highscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D966A17413F2800ABD83C /* highscorelist.plist */; };
 		3D8815A61740F31F007448CC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8815A41740F31F007448CC /* SettingsViewController.m */; };
 		3D8815A71740F31F007448CC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8815A51740F31F007448CC /* SettingsViewController.xib */; };
+		49403FD8174A7276003FC5A5 /* Scores.m in Sources */ = {isa = PBXBuildFile; fileRef = 49403FD7174A7276003FC5A5 /* Scores.m */; };
 		7B0D44D51578BEF600F7BBC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D41578BEF500F7BBC0 /* UIKit.framework */; };
 		7B0D44D71578BEF600F7BBC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D61578BEF600F7BBC0 /* Foundation.framework */; };
 		7B0D44D91578BEF600F7BBC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0D44D81578BEF600F7BBC0 /* CoreGraphics.framework */; };
@@ -87,6 +88,8 @@
 		3D8815A31740F31F007448CC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3D8815A41740F31F007448CC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3D8815A51740F31F007448CC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		49403FD6174A7276003FC5A5 /* Scores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scores.h; sourceTree = "<group>"; };
+		49403FD7174A7276003FC5A5 /* Scores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scores.m; sourceTree = "<group>"; };
 		7B0D44D01578BEF500F7BBC0 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D44D41578BEF500F7BBC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B0D44D61578BEF600F7BBC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,15 @@
 			name = Highscores;
 			sourceTree = "<group>";
 		};
+		49403FD5174A7264003FC5A5 /* Scores */ = {
+			isa = PBXGroup;
+			children = (
+				49403FD6174A7276003FC5A5 /* Scores.h */,
+				49403FD7174A7276003FC5A5 /* Scores.m */,
+			);
+			name = Scores;
+			sourceTree = "<group>";
+		};
 		7B0D44C51578BEF500F7BBC0 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +244,7 @@
 		7B0D44DA1578BEF600F7BBC0 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				49403FD5174A7264003FC5A5 /* Scores */,
 				3D1764F9174A31240013286C /* Rounds */,
 				3D8EE6A51741280D00F12B41 /* Highscores */,
 				3D8815A21740F272007448CC /* Settings */,
@@ -493,6 +506,7 @@
 				3D8815A61740F31F007448CC /* SettingsViewController.m in Sources */,
 				3D7D966B17413F2800ABD83C /* HighScoreViewController.m in Sources */,
 				3D1764F8174A2F410013286C /* Rounds.m in Sources */,
+				49403FD8174A7276003FC5A5 /* Scores.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

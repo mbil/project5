@@ -10,8 +10,9 @@
 #import "EvilBullsEyeViewController.h"
 #import "SettingsViewController.h"
 #import "Rounds.h"
+#import "Scores.h"
 
-@interface BullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate>;
+@interface BullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate, ScoresDelegate>;
 
 @property (weak, nonatomic) IBOutlet UILabel *loadPlistLabel;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
