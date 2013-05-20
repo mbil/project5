@@ -18,19 +18,16 @@
 @synthesize scoresPlist;
 @synthesize delegate;
 
-- (void)resetScores
+- (void)resetScore
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.score = 0;
-    [self.delegate resetScore:score];
 }
 
 - (void)calculatePointsRound
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     score = appDelegate.score;
-
-    NSLog(@"%d", appDelegate.score);
     
     // calculate difference
     int difference = abs(self.targetValue - self.currentValue);
@@ -53,7 +50,7 @@
     }
     
     NSString *message = [NSString stringWithFormat:@"You scored %d points", points];
-
+    
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:self.title
                               message:message
@@ -64,8 +61,7 @@
     
     score += points;
     appDelegate.score = score;
-    NSLog(@"%d", appDelegate.score);
-    [self.delegate pointsScored:score];
+    [self.delegate pointsScored:score]; 
 }
 
 - (void)saveHighscores

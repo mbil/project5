@@ -44,6 +44,8 @@
 
 - (void)updateLabels
 {
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", appDelegate.score];
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
 }
@@ -114,7 +116,7 @@
     [self applySettings];
     Scores *scores = [[Scores alloc] init];
     scores.delegate = self;
-    [scores resetScores];
+    [scores resetScore];
     round = 0;
     [self startNewRound];
 }
@@ -339,19 +341,12 @@
     _scoreLabel.text = [NSString stringWithFormat:@"%d", number];
     [self updateLabels];
     [self checkEndGame];
-    Scores *scores = [[Scores alloc] init];
-    scores.delegate = self;
 }
 
 // update selected rounds label and value currentselectedrounds
 - (void)numberOfRoundsHasChangedTo:(int)number{
     _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
     currentSelectedRounds = number;
-}
-
-- (void)resetScore:(int)score
-{
-    _scoreLabel.text = [NSString stringWithFormat:@"%d", score];
 }
 
 @end

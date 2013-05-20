@@ -50,8 +50,8 @@
     [self updateLabels];
     
     // set current values of slider
-    currentValue1 = arc4random() % 50;
-    currentValue2 = 50 + (arc4random() % 50);
+    currentValue1 = 20;
+    currentValue2 = 80;
     
     // load the slider
     [self loadSlider];
@@ -149,8 +149,6 @@
 {
     
     round += 1;
-    currentValue1 = arc4random() % 50;
-    currentValue2 = 50 + (arc4random() % 50);
     [self generateValue];
 
 }

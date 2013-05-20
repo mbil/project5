@@ -12,7 +12,6 @@
 
 //- (void)numberHasChangedTo:(int)number;
 - (void)pointsScored:(int)number;
-- (void)resetScore:(int)score;
 
 @end
 
@@ -33,7 +32,7 @@
 
 - (void)saveHighscores;
 - (void)calculatePointsRound;
-- (void)resetScores;
+- (void)resetScore;
 
 
 @end
