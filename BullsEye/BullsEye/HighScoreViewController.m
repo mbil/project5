@@ -52,6 +52,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    BullsEyeAppDelegate *delegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (delegate.currentSelectedRounds == 1) {
+        self.roundsOption.selectedSegmentIndex = 0;
+    } else if (delegate.currentSelectedRounds == 5) {
+        self.roundsOption.selectedSegmentIndex = 1;
+    } else {
+        self.roundsOption.selectedSegmentIndex = 2;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
