@@ -15,6 +15,11 @@
 @synthesize scoresPlist;
 @synthesize delegate;
 
+- (void)test
+{
+    NSString test1 = @"blub";
+}
+
 - (void)saveHighscores
 {
     // Load property list
