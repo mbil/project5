@@ -10,7 +10,7 @@
 
 @protocol ScoresDelegate <NSObject>
 
-//- (void)numberHasChangedTo:(int)number;
+- (void)highscore:(int)number;
 - (void)pointsScored:(int)number;
 
 @end

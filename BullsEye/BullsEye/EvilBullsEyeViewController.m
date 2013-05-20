@@ -330,17 +330,17 @@
 //    [highscores replaceObjectAtIndex:i withObject:newestDictionary];
 //}
 
-- (void)alertMessage
+- (void)highscore:(int)number
 {
     NSString *alertMessage = nil;
     
     // Alert player with new highscore
-    
-    //alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+    alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", number];
     UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [highScoreAlert show];
 }
+
 
 // show about view
 - (IBAction)showInfo

@@ -135,6 +135,7 @@
 
     // Write to plist
     [highscores writeToFile:path atomically:YES];
+    [self.delegate highscore:score];
 }
 
 - (void)writeToDictionary:(NSInteger)i
