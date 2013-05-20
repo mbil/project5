@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1764F8174A2F410013286C /* Rounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1764F7174A2F410013286C /* Rounds.m */; };
 		3D18358417428CA900C1FC0B /* values1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18358317428CA900C1FC0B /* values1.plist */; };
 		3D1835861742963500C1FC0B /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1835851742963500C1FC0B /* setting.png */; };
 		3D5B6ECA17425DB100F2872E /* evilhighscorelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */; };
@@ -72,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1764F6174A2F410013286C /* Rounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rounds.h; sourceTree = "<group>"; };
+		3D1764F7174A2F410013286C /* Rounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rounds.m; sourceTree = "<group>"; };
 		3D18358317428CA900C1FC0B /* values1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = values1.plist; sourceTree = "<group>"; };
 		3D1835851742963500C1FC0B /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		3D5B6EC917425DB100F2872E /* evilhighscorelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = evilhighscorelist.plist; sourceTree = "<group>"; };
@@ -161,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1764F9174A31240013286C /* Rounds */ = {
+			isa = PBXGroup;
+			children = (
+				3D1764F6174A2F410013286C /* Rounds.h */,
+				3D1764F7174A2F410013286C /* Rounds.m */,
+			);
+			name = Rounds;
+			sourceTree = "<group>";
+		};
 		3D8815A21740F272007448CC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 		7B0D44DA1578BEF600F7BBC0 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				3D1764F9174A31240013286C /* Rounds */,
 				3D8EE6A51741280D00F12B41 /* Highscores */,
 				3D8815A21740F272007448CC /* Settings */,
 				BAA3EDBF17202A5F00FC5F59 /* App Delegate */,
@@ -479,6 +492,7 @@
 				BAA3EDB71720296700FC5F59 /* EvilBullsEyeViewController.m in Sources */,
 				3D8815A61740F31F007448CC /* SettingsViewController.m in Sources */,
 				3D7D966B17413F2800ABD83C /* HighScoreViewController.m in Sources */,
+				3D1764F8174A2F410013286C /* Rounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
