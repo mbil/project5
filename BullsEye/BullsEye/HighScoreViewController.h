@@ -11,9 +11,9 @@
 
 @interface HighScoreViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *sortedHighScores;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *roundsOption;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *roundsOption;
 @property (nonatomic, strong) NSIndexPath *indexToPath;
 @property (nonatomic, strong) UITableViewCell *cellFromTableView;
 

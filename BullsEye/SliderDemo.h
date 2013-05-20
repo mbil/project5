@@ -26,9 +26,9 @@
     UIImageView * _track;
     UIImageView * _trackBackground;
 }
-@property(nonatomic) float minimumValue;
-@property(nonatomic) float maximumValue;
-@property(nonatomic) float minimumRange;
-@property(nonatomic) float selectedMinimumValue;
-@property(nonatomic) float selectedMaximumValue;
+@property (nonatomic) float minimumValue;
+@property (nonatomic) float maximumValue;
+@property (nonatomic) float minimumRange;
+@property (nonatomic) float selectedMinimumValue;
+@property (nonatomic) float selectedMaximumValue;
 @end

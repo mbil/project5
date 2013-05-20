@@ -1,8 +1,8 @@
 //
-//  Scores.m
+//  HighScoreViewController.h
 //  BullsEye
 //
-//  Created by Miguel Pruijssers on 20-05-13.
+//  Created by Myrthe Bil en Miguel Pruijssers on 18-04-13.
 //  Copyright (c) 2013 App Studio. All rights reserved.
 //
 
@@ -63,34 +63,33 @@
     
     NSString *path;
     if (appDelegate.evilGamePlay == NO) {
-        // Load property list
+        // load property list
         path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
         highscores = [NSMutableArray arrayWithContentsOfFile:path];
     } else {
-        // Load property list
+        // load property list
         path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
         highscores = [NSMutableArray arrayWithContentsOfFile:path];
     }
         
-    // Array for the highscores
+    // array for the highscores
     dataFromPlist = [highscores valueForKey:@"highscore"];
 
 
     if (currentSelectedRounds == 1) {
         for (int i = 0; i < 5; i++) {
-            // Fill variable with a highscore
-
+            
+            // fill variable with a highscore
             scoresPlist = [dataFromPlist objectAtIndex:i];
 
-            // If the highscore already exists, break loop
+            // if the highscore already exists, break loop
             if (score == [scoresPlist intValue]) {
                 break;
             }
 
-            // If the new score is higher than an old highscore, replace the lower one
+            // if the new score is higher than an old highscore, replace the lower one
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                //[self alertMessage];
 
                 break;
             }
@@ -108,7 +107,6 @@
 
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                //[self alertMessage];
 
                 break;
             }
@@ -126,14 +124,13 @@
 
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                //[self alertMessage];
 
                 break;
             }
         }
     }
 
-    // Write to plist
+    // write to plist
     [highscores writeToFile:path atomically:YES];
     [self.delegate highscore:score];
 }
@@ -142,21 +139,21 @@
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     score = appDelegate.score;
-    // Today's date
+    // today's date
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSString *date = [dateFormatter stringFromDate:currentDate];
     
-    // Fill variable with highscore
+    // fill variable with highscore
     scoresPlist = [dataFromPlist objectAtIndex:i];
     
-    // Copy dictionary
+    // copy dictionary
     NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
-    // Change highscore and date
+    // change highscore and date
     [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
     [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
-    // Replace old dictionary
+    // replace old dictionary
     [highscores replaceObjectAtIndex:i withObject:newestDictionary];
 }
 

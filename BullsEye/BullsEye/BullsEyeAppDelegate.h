@@ -12,9 +12,9 @@
 
 @interface BullsEyeAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 
-@property (strong, nonatomic) BullsEyeViewController *viewController;
+@property (nonatomic, strong) BullsEyeViewController *viewController;
 @property (nonatomic) BOOL loadPlist;
 @property (nonatomic) BOOL evilGamePlay;
 @property (nonatomic) NSUInteger selectedRounds;

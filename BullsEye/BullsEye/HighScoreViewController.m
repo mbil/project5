@@ -25,7 +25,7 @@
     if (self)
     {
         BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
-        // Load de property list
+        // load de property list
         if (appDelegate.evilGamePlay == NO) {
             [self retrieveWithSelectedPlist:@"highscorelist"];
         }
@@ -37,14 +37,14 @@
     return self;
 }
 
-// Select the right plist and sort the highscores
+// select the right plist and sort the highscores
 - (void)retrieveWithSelectedPlist:(NSString*)properPlist
 {
-    // Make an array for the highscores
+    // make an array for the highscores
     NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", properPlist] ofType:@"plist"];
     NSMutableArray *highscores = [NSMutableArray arrayWithContentsOfFile:path];
     
-    // Sort on descending order
+    // sort on descending order
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"highscore" ascending:NO];
     sortedHighScores = [NSMutableArray arrayWithArray:[highscores sortedArrayUsingDescriptors:[NSMutableArray arrayWithObject:descriptor]]];
 }
@@ -82,7 +82,7 @@
     return 5;
 }
 
-// Fill tableViewCells
+// fill tableViewCells
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"highScoreCell";
@@ -92,14 +92,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    // Call segment method when a segment value changes
+    // call segment method when a segment value changes
     [self.roundsOption addTarget:self action:@selector(segmentedControlIndexChanged) forControlEvents:UIControlEventValueChanged];
     
-    // Create 2 class variables to use outside this method
+    // create 2 class variables to use outside this method
     indexToPath = indexPath;
     cellFromTableView = cell;
     
-    // Retrieve the proper highscores for the proper amount of rounds
+    // retrieve the proper highscores for the proper amount of rounds
     if (self.roundsOption.selectedSegmentIndex == 0) {
         [self retrieveWithSelectedRounds:@"1"];
     }
@@ -110,31 +110,31 @@
         [self retrieveWithSelectedRounds:@"10"];
     }
     
-    // Change color of the text
+    // change color of the text
     cell.textLabel.textColor = [UIColor orangeColor];
     cell.detailTextLabel.textColor = [UIColor redColor];
     
     return cell;
 }
 
-// Retrieve highscores en dates to print in the cells
+// retrieve highscores en dates to print in the cells
 - (void)retrieveWithSelectedRounds:(NSString*)selectedRounds
 {
-    // Search the array for the rounds
+    // search the array for the rounds
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"rounds == %@", selectedRounds];
-    // Filter the array
+    // filter the array
     NSArray *filteredArray = [sortedHighScores filteredArrayUsingPredicate:predicate];
     NSMutableDictionary *highscores = [filteredArray objectAtIndex:indexToPath.row];
     
     NSInteger highscore = [[highscores objectForKey:@"highscore"] integerValue];
     NSString *date = [highscores objectForKey:@"date"];
     
-    // Write highscors en dates in the cells
+    // write highscors en dates in the cells
     cellFromTableView.textLabel.text = [NSString stringWithFormat:@"%i", highscore];
     cellFromTableView.detailTextLabel.text = [NSString stringWithFormat:@"%@",date];
 }
 
-// Method to reload tableview after swithing segment
+// method to reload tableview after swithing segment
 - (void)segmentedControlIndexChanged
 {
     switch ([self.roundsOption selectedSegmentIndex]) {

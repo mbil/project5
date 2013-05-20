@@ -10,7 +10,7 @@
 
 @interface AboutViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 
 - (IBAction)close;
 

@@ -1,8 +1,8 @@
 //
-//  Scores.h
+//  HighScoreViewController.h
 //  BullsEye
 //
-//  Created by Miguel Pruijssers on 20-05-13.
+//  Created by Myrthe Bil en Miguel Pruijssers on 18-04-13.
 //  Copyright (c) 2013 App Studio. All rights reserved.
 //
 
@@ -38,6 +38,5 @@
 - (void)saveHighscores;
 - (void)calculatePointsRound;
 - (void)resetScore;
-
 
 @end
