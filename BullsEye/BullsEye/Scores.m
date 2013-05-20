@@ -7,16 +7,72 @@
 //
 
 #import "Scores.h"
+#import "BullsEyeAppDelegate.h"
 
-@implementation Scores
+@implementation Scores {
+    int score;
+}
 
 @synthesize highscores;
 @synthesize dataFromPlist;
 @synthesize scoresPlist;
 @synthesize delegate;
 
+- (void)resetScores
+{
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.score = 0;
+    [self.delegate resetScore:score];
+}
+
+- (void)calculatePointsRound
+{
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    score = appDelegate.score;
+
+    NSLog(@"%d", appDelegate.score);
+    
+    // calculate difference
+    int difference = abs(self.targetValue - self.currentValue);
+    int points = 100 - difference;
+    
+    // message depending on difference
+    if (difference == 0) {
+        self.title = @"Perfect!";
+        points += 100;
+        
+    } else if (difference < 5) {
+        if (difference == 1) {
+            points += 50;
+        }
+        self.title = @"You almost had it!";
+    } else if (difference < 10) {
+        self.title = @"Pretty good!";
+    } else {
+        self.title = @"Not even close...";
+    }
+    
+    NSString *message = [NSString stringWithFormat:@"You scored %d points", points];
+
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:self.title
+                              message:message
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+    
+    score += points;
+    appDelegate.score = score;
+    NSLog(@"%d", appDelegate.score);
+    [self.delegate pointsScored:score];
+}
+
 - (void)saveHighscores
 {
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    score = appDelegate.score;
+    
     // Load property list
     NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
     highscores = [NSMutableArray arrayWithContentsOfFile:path];
@@ -39,7 +95,7 @@
             // If the new score is higher than an old highscore, replace the lower one
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                [self alertMessage];
+                //[self alertMessage];
 
                 break;
             }
@@ -57,7 +113,7 @@
 
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                [self alertMessage];
+                //[self alertMessage];
 
                 break;
             }
@@ -75,7 +131,7 @@
 
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
-                [self alertMessage];
+                //[self alertMessage];
 
                 break;
             }
@@ -88,6 +144,8 @@
 
 - (void)writeToDictionary:(NSInteger)i
 {
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    score = appDelegate.score;
     // Today's date
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

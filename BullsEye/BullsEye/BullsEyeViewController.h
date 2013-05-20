@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *loadPlistLabel;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel;
-@property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
+@property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
 @property (nonatomic, weak) IBOutlet UILabel *selectedRoundsLabel;
 @property (nonatomic, weak) IBOutlet UISwitch *toggleSwitch;

@@ -19,14 +19,12 @@
 @implementation BullsEyeViewController {
     int currentValue;
     int targetValue;
-    int score;
     int round;
     int currentSelectedRounds;
 }
 
 @synthesize slider;
 @synthesize targetLabel;
-@synthesize scoreLabel;
 @synthesize roundLabel;
 @synthesize highscores;
 @synthesize dataFromPlist;
@@ -47,7 +45,6 @@
 - (void)updateLabels
 {
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
 }
 
@@ -94,12 +91,6 @@
     }
 }
 
-// update selected rounds label and value currentselectedrounds
-- (void)numberOfRoundsHasChangedTo:(int)number{
-    _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
-    currentSelectedRounds = number;
-}
-
 - (void)applySettings
 {
     [self generateValue];
@@ -113,18 +104,22 @@
         self.loadPlistLabel.text = @"Off";
     }
     // update label of the current selected rounds
-    Rounds *nl = [[Rounds alloc] init];
-    nl.delegate = self;
-    [nl getRounds];
+    Rounds *rounds = [[Rounds alloc] init];
+    rounds.delegate = self;
+    [rounds getRounds];
 }
 
 - (void)startNewGame
 {
     [self applySettings];
-    score = 0;
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    [scores resetScores];
     round = 0;
     [self startNewRound];
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -159,41 +154,14 @@
 
 - (IBAction)showAlert
 {
-    // calculate difference
-    int difference = abs(targetValue - currentValue);
-    int points = 100 - difference;
- 
-    // message depending on difference
-    NSString *title;
-    if (difference == 0) {
-        title = @"Perfect!";
-        points += 100;
-    } else if (difference < 5) {
-        if (difference == 1) {
-            points += 50;
-        }
-        title = @"You almost had it!";
-    } else if (difference < 10) {
-        title = @"Pretty good!";
-    } else {
-        title = @"Not even close...";
-    }
- 
-    score += points;
- 
-    NSString *message = [NSString stringWithFormat:@"You scored %d points", points];
- 
-    UIAlertView *alertView = [[UIAlertView alloc]
-        initWithTitle:title
-        message:message
-        delegate:self
-        cancelButtonTitle:@"OK"
-        otherButtonTitles:nil];
-
-    [self updateLabels];
-    [alertView show];
-    
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    scores.currentValue = currentValue;
+    scores.targetValue = targetValue;
+    [scores calculatePointsRound];
 }
+
+
 
 - (IBAction)sliderMoved:(UISlider *)sender
 {
@@ -202,9 +170,9 @@
 
 - (IBAction)startOver
 {
-    Scores *nl = [[Scores alloc] init];
-    nl.delegate = self;
-    [nl saveHighscores];
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+    [scores saveHighscores];
     
 //    // Load property list
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
@@ -310,7 +278,7 @@
     NSString *alertMessage = nil;
     
     // Alert player with new highscore
-    alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
+    // alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
     UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [highScoreAlert show];
@@ -343,16 +311,17 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-// if Hit Me button clicked, check if the game has ended
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    [self checkEndGame];
-}
+//// if Hit Me button clicked, check if the game has ended
+//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+//{
+//    [self checkEndGame];
+//}
 
 - (void)viewDidUnload {
     [self setSelectedRoundsLabel:nil];
     [super viewDidUnload];
 }
+
 
 // toggle the evil view
 - (IBAction)toggleEvil:(id)sender {
@@ -362,6 +331,27 @@
     
     [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:evil animated:YES];
+}
+
+// delegate van scores
+- (void)pointsScored:(int)number
+{
+    _scoreLabel.text = [NSString stringWithFormat:@"%d", number];
+    [self updateLabels];
+    [self checkEndGame];
+    Scores *scores = [[Scores alloc] init];
+    scores.delegate = self;
+}
+
+// update selected rounds label and value currentselectedrounds
+- (void)numberOfRoundsHasChangedTo:(int)number{
+    _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
+    currentSelectedRounds = number;
+}
+
+- (void)resetScore:(int)score
+{
+    _scoreLabel.text = [NSString stringWithFormat:@"%d", score];
 }
 
 @end

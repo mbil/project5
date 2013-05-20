@@ -21,6 +21,7 @@
     // Override point for customization after application launch.
     self.loadPlist = NO;
     self.evilGamePlay = NO;
+    self.score = 0;
     self.selectedRounds = 0;
 	self.viewController = [[BullsEyeViewController alloc] initWithNibName:@"BullsEyeViewController" bundle:nil];
 	self.window.rootViewController = self.viewController;

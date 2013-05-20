@@ -659,14 +659,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">scoreLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="361686142"/>
-					</object>
-					<int key="connectionID">24</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">roundLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="1034770388"/>
@@ -696,6 +688,14 @@
 						<reference key="destination" ref="941049664"/>
 					</object>
 					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">scoreLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="361686142"/>
+					</object>
+					<int key="connectionID">55</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -949,7 +949,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">54</int>
+			<int key="maxID">55</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -963,6 +963,7 @@
 						<string key="showSettings:">id</string>
 						<string key="sliderMoved:">UISlider</string>
 						<string key="startOver">id</string>
+						<string key="toggleEvil:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="showAlert">
@@ -987,6 +988,10 @@
 						</object>
 						<object class="IBActionInfo" key="startOver">
 							<string key="name">startOver</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleEvil:">
+							<string key="name">toggleEvil:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

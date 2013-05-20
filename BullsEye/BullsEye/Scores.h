@@ -11,6 +11,8 @@
 @protocol ScoresDelegate <NSObject>
 
 //- (void)numberHasChangedTo:(int)number;
+- (void)pointsScored:(int)number;
+- (void)resetScore:(int)score;
 
 @end
 
@@ -19,14 +21,19 @@
     NSArray *dataFromPlist;
     NSNumber *scoresPlist;
     int currentSelectedRounds;
-    int score;
 }
 
 @property (nonatomic, strong) NSMutableArray *highscores;
 @property (nonatomic, strong) NSArray *dataFromPlist;
 @property (nonatomic, strong) NSNumber *scoresPlist;
+@property (nonatomic) NSUInteger targetValue;
+@property (nonatomic) NSUInteger currentValue;
 @property (nonatomic, strong) id <ScoresDelegate> delegate;
+@property (nonatomic) NSString *title;
 
 - (void)saveHighscores;
+- (void)calculatePointsRound;
+- (void)resetScores;
+
 
 @end
