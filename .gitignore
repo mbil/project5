@@ -14,4 +14,12 @@ profile
 *.moved-aside
 DerivedData
 .idea/
-*.hmap
+
+
+.gitignore
+
+BullsEye/BullsEye.xcodeproj/project.pbxproj
+
+BullsEye/BullsEye/HighScoreViewController.xib
+
+BullsEye/BullsEye/en.lproj/BullsEyeViewController.xib
