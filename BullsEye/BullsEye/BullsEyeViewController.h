@@ -13,13 +13,13 @@
 
 @interface BullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate>;
 
-@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loadPlistLabel;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
 - (IBAction)showAlert;

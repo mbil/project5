@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "Rounds.h"
 
-@interface EvilBullsEyeViewController : UIViewController <SettingsViewControllerDelegate>
+@interface EvilBullsEyeViewController : UIViewController <SettingsViewControllerDelegate, RoundsDelegate>
 
 @property(nonatomic,retain)IBOutlet UILabel *lblForRange;
 @property (nonatomic, strong) IBOutlet UILabel *targetLabel1;
 @property (strong, nonatomic) IBOutlet UILabel *targetLabel2;
 @property (nonatomic, strong) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, strong) IBOutlet UILabel *roundLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loadPlistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel2;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
 - (IBAction)showAlert;

@@ -13,6 +13,7 @@
 
 @synthesize delegate;
 
+// set values selectedrounds
 - (void)getRounds {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.selectedRounds == 0) {
@@ -22,7 +23,7 @@
     }else if (appDelegate.selectedRounds == 2) {
         selectedRounds = 10;
     }
-    NSLog(@"%d", selectedRounds);
+    // delegate selectedRounds to update labels
     [self.delegate numberOfRoundsHasChangedTo:selectedRounds];
 }
 @end

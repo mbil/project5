@@ -744,22 +744,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">selectedRoundsLabel2</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="897663906"/>
-					</object>
-					<int key="connectionID">61</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">selectedRoundsLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="853437233"/>
-					</object>
-					<int key="connectionID">62</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">roundLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="879075813"/>
@@ -781,6 +765,22 @@
 						<reference key="destination" ref="348112072"/>
 					</object>
 					<int key="connectionID">66</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">loadPlistLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="853437233"/>
+					</object>
+					<int key="connectionID">73</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">selectedRoundsLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="897663906"/>
+					</object>
+					<int key="connectionID">74</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1040,7 +1040,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">72</int>
+			<int key="maxID">74</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1083,10 +1083,10 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="lblForRange">UILabel</string>
+						<string key="loadPlistLabel">UILabel</string>
 						<string key="roundLabel">UILabel</string>
 						<string key="scoreLabel">UILabel</string>
 						<string key="selectedRoundsLabel">UILabel</string>
-						<string key="selectedRoundsLabel2">UILabel</string>
 						<string key="targetLabel1">UILabel</string>
 						<string key="targetLabel2">UILabel</string>
 						<string key="toggleSwitch">UISwitch</string>
@@ -1094,6 +1094,10 @@
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="lblForRange">
 							<string key="name">lblForRange</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loadPlistLabel">
+							<string key="name">loadPlistLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="roundLabel">
@@ -1106,10 +1110,6 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="selectedRoundsLabel">
 							<string key="name">selectedRoundsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="selectedRoundsLabel2">
-							<string key="name">selectedRoundsLabel2</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="targetLabel1">

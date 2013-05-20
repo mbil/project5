@@ -35,6 +35,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // set value of evil switch
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.toggleSwitch.on = appDelegate.evilGamePlay;
+}
+
 - (void)updateLabels
 {
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
@@ -46,7 +53,11 @@
 - (void)generateValue
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    // if user chose to use a plist, load the plist if not, generate random number
     if (appDelegate.loadPlist == YES) {
+        
+        // choose a random value by index from plist. Random value range is equal to length chosen plist
         int randomGeneratedNumber;
         if (appDelegate.selectedPlist == 0) {
             randomGeneratedNumber = arc4random()%10;
@@ -65,8 +76,9 @@
 {
     round += 1;
     [self generateValue];
-       
-    currentValue = 50;
+    
+    // slider takes on random position
+    currentValue = arc4random() % 100;
     self.slider.value = currentValue;
 }
 
@@ -81,22 +93,25 @@
     }
 }
 
+// update selected rounds label and value currentselectedrounds
 - (void)numberOfRoundsHasChangedTo:(int)number{
-    _selectedRoundsLabel2.text = [NSString stringWithFormat:@"%d", number];
+    _selectedRoundsLabel.text = [NSString stringWithFormat:@"%d", number];
     currentSelectedRounds = number;
 }
 
 - (void)applySettings
 {
-    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
-    self.toggleSwitch.on = appDelegate.evilGamePlay;
     [self generateValue];
     [self updateLabels];
+    
+    // update label of loadPlist
+    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (appDelegate.loadPlist) {
-        self.selectedRoundsLabel.text = @"On";
+        self.loadPlistLabel.text = @"On";
     } else {
-        self.selectedRoundsLabel.text = @"Off";
+        self.loadPlistLabel.text = @"Off";
     }
+    // update label of the current selected rounds
     Rounds *nl = [[Rounds alloc] init];
     nl.delegate = self;
     [nl getRounds];
@@ -113,15 +128,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Rounds *nl = [[Rounds alloc] init];
-    nl.delegate = self;
-    [nl getRounds];
-    [self startNewGame];
-    [self updateLabels];
+    
+    // update label of current selected rounds
     Rounds *rounds = [[Rounds alloc] init];
     rounds.delegate = self;
-    BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.toggleSwitch.on = appDelegate.evilGamePlay;
+    [rounds getRounds];
+    
+    [self startNewGame];
+    [self updateLabels];
+
+    // initiate slider
     UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
     [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
  
@@ -142,9 +158,11 @@
 
 - (IBAction)showAlert
 {
+    // calculate difference
     int difference = abs(targetValue - currentValue);
     int points = 100 - difference;
  
+    // message depending on difference
     NSString *title;
     if (difference == 0) {
         title = @"Perfect!";
@@ -307,6 +325,7 @@
     [self.view.layer addAnimation:transition forKey:nil];
 }
 
+// load about view
 - (IBAction)showInfo
 {
     AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
@@ -314,6 +333,7 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+// load highscore view
 - (IBAction)showHighScores
 {
     HighScoreViewController *controller = [[HighScoreViewController alloc] initWithNibName:@"HighScoreViewController" bundle:nil];
@@ -321,6 +341,7 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+// load settings view
 - (IBAction)showSettings:(id)sender
 {
     SettingsViewController *controller = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
@@ -329,6 +350,7 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+// if Hit Me button clicked, check if the game has ended
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     [self checkEndGame];
@@ -339,6 +361,7 @@
     [super viewDidUnload];
 }
 
+// toggle the evil view
 - (IBAction)toggleEvil:(id)sender {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.evilGamePlay = self.toggleSwitch.on;
@@ -347,4 +370,5 @@
     [evil setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:evil animated:YES];
 }
+
 @end
