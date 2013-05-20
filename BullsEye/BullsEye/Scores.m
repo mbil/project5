@@ -61,10 +61,17 @@
     score = appDelegate.score;
     currentSelectedRounds = appDelegate.currentSelectedRounds;
     
-    // Load property list
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
-    highscores = [NSMutableArray arrayWithContentsOfFile:path];
-
+    NSString *path;
+    if (appDelegate.evilGamePlay == NO) {
+        // Load property list
+        path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
+        highscores = [NSMutableArray arrayWithContentsOfFile:path];
+    } else {
+        // Load property list
+        path = [[NSBundle mainBundle] pathForResource:@"evilhighscorelist" ofType:@"plist"];
+        highscores = [NSMutableArray arrayWithContentsOfFile:path];
+    }
+        
     // Array for the highscores
     dataFromPlist = [highscores valueForKey:@"highscore"];
 
