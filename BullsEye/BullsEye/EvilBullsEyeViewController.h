@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedRoundsLabel2;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
+@property (nonatomic, strong) NSMutableArray *highscores;
+@property (nonatomic, strong) NSArray *dataFromPlist;
+@property (nonatomic, strong) NSNumber *scoresPlist;
 
 - (IBAction)showAlert;
 - (IBAction)startOver;

@@ -37,7 +37,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-// Update labels
 - (void)updateLabels
 {
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
@@ -45,7 +44,6 @@
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
 }
 
-// Maak waardes aan
 - (void)generateValue
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -60,17 +58,16 @@
         NSMutableArray *values = [NSMutableArray arrayWithContentsOfFile:path];
         targetValue = [[values objectAtIndex:(randomGeneratedNumber)]intValue];
     } else {
-        targetValue = 1 + (arc4random() % 99);
+        targetValue = 1 + (arc4random() % 100);
     }
 }
 
-// Start nieuwe ronde
 - (void)startNewRound
 {
     round += 1;
     [self generateValue];
        
-    currentValue = 1 + (arc4random() % 99);
+    currentValue = 1 + (arc4random() % 100);
     self.slider.value = currentValue;
 }
 
@@ -111,7 +108,6 @@
     }
 }
 
-// Start nieuwe game
 - (void)startNewGame
 {
     [self applySettings];
@@ -140,7 +136,6 @@
     [self.slider setMaximumTrackImage:trackRightImage forState:UIControlStateNormal];
 }
 
-// Autorotate naar landscape
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return UIInterfaceOrientationIsLandscape(interfaceOrientation);
@@ -190,26 +185,24 @@
 - (IBAction)startOver
 {
     
-    // Load de property list
+    // Load property list
     NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];
     highscores = [NSMutableArray arrayWithContentsOfFile:path];
     
-    // Array voor de highscores
+    // Array for the highscores
     dataFromPlist = [highscores valueForKey:@"highscore"];
     
-    // Als ronde 1 is voltooid
     if (round == 1) {
-        // Loop door de eerste 5 highscores van de bijbehorende ronde
         for (int i = 0; i < 5; i++) {
-            // Vul variabel met highscores
+            // Fill variable with a highscore
             scoresPlist = [dataFromPlist objectAtIndex:i];
             
-            // Als highscore al bestaat, break for loop
+            // If the highscore already exists, break loop
             if (score == [scoresPlist intValue]) {
                 break;
             }
             
-            // Als de behaalde score groter is, vervang de score
+            // If the new score is higher than an old highscore, replace the lower one
             else if (score > [scoresPlist intValue]) {
                 [self writeToDictionary:i];
                 [self alertMessage];
@@ -253,7 +246,7 @@
         }
     }
     
-    // Schrijf naar plist
+    // Write to plist
     [highscores writeToFile:path atomically:YES];
     
     CATransition *transition = [CATransition animation];
@@ -267,35 +260,31 @@
     [self.view.layer addAnimation:transition forKey:nil];
 }
 
-// Schrijf nieuwe highscore naar plist
 - (void)writeToDictionary:(NSInteger)i
 {
-    // Datum van vandaag
+    // Today's date
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSString *date = [dateFormatter stringFromDate:currentDate];
     
-    // Vul variabel met highscores
+    // Fill variable with highscore
     scoresPlist = [dataFromPlist objectAtIndex:i];
     
-    // Kopieer dictionary
+    // Copy dictionary
     NSMutableDictionary *newestDictionary = [[highscores objectAtIndex:i] mutableCopy];
-    // Wijzig highscore en datum
+    // Change highscore and date
     [newestDictionary setObject:[NSNumber numberWithInteger:score] forKey:@"highscore"];
     [newestDictionary setObject:[NSString stringWithFormat:@"%@", date] forKey:@"date"];
-    // Vervang oude dictionary voor nieuwe
+    // Replace old dictionary
     [highscores replaceObjectAtIndex:i withObject:newestDictionary];
 }
 
-// Alert voor tonen nieuwe highscore
 - (void)alertMessage
 {
-    
-    // Maak variabel voor alertmessage
     NSString *alertMessage = nil;
     
-    // Alert player met nieuwe highscore
+    // Alert player with new highscore
     alertMessage = [NSString stringWithFormat:@"Je hebt een nieuwe highscore:\n %i", score];
     UIAlertView *highScoreAlert = [[UIAlertView alloc]initWithTitle:@"Congratz!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
