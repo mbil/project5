@@ -77,6 +77,7 @@
     } else {
         self.loadPlistLabel.text = @"Off";
     }
+    // update label of the current selected rounds
     Rounds *nl = [[Rounds alloc] init];
     nl.delegate = self;
     [nl getRounds];
