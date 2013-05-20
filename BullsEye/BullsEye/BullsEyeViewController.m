@@ -48,6 +48,7 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", appDelegate.score];
     self.targetLabel.text = [NSString stringWithFormat:@"%d", targetValue];
     self.roundLabel.text = [NSString stringWithFormat:@"%d", round];
+    appDelegate.currentSelectedRounds = currentSelectedRounds;
 }
 
 - (void)generateValue

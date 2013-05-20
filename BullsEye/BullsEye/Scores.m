@@ -68,6 +68,7 @@
 {
     BullsEyeAppDelegate *appDelegate = (BullsEyeAppDelegate *)[[UIApplication sharedApplication] delegate];
     score = appDelegate.score;
+    currentSelectedRounds = appDelegate.currentSelectedRounds;
     
     // Load property list
     NSString *path = [[NSBundle mainBundle] pathForResource:@"highscorelist" ofType:@"plist"];

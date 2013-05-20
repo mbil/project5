@@ -23,6 +23,7 @@
     self.evilGamePlay = NO;
     self.score = 0;
     self.selectedRounds = 0;
+    self.currentSelectedRounds = 0;
 	self.viewController = [[BullsEyeViewController alloc] initWithNibName:@"BullsEyeViewController" bundle:nil];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
